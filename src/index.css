@@ -1,0 +1,299 @@
+/* ============================================
+   ИМПОРТ ШРИФТОВ ИЗ GOOGLE FONTS
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   TILDA SANS - локальный шрифт
+   ============================================ */
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-Light.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-Light.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-Light.eot') format('eot');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-Regular.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-Regular.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-Regular.eot') format('eot');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-Medium.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-Medium.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-Medium.eot') format('eot');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-Semibold.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-Semibold.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-Semibold.eot') format('eot');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-Bold.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-Bold.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-Bold.eot') format('eot');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-ExtraBold.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-ExtraBold.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-ExtraBold.eot') format('eot');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/TildaSans/TildaSans-Black.woff2') format('woff2'),
+       url('/fonts/TildaSans/TildaSans-Black.woff') format('woff'),
+       url('/fonts/TildaSans/TildaSans-Black.eot') format('eot');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color: #333;
+  --light-bg: #f5f5f5;
+  --border-color: #e0e0e0;
+  --success: #4caf50;
+  --error: #f44336;
+  --warning: #ff9800;
+
+  /* ============================================
+     ШРИФТЫ - CSS ПЕРЕМЕННЫЕ
+     ============================================ */
+  --font-tilda: 'Tilda Sans', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-inter-tight: 'Inter', sans-serif;
+
+  /* Основные комбинации */
+  --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-heading: 'Tilda Sans', 'Roboto', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--warning);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1792px;
+  margin: 0 auto;
+}
+
+/* Page Section - Full width with background */
+.page-section {
+  width: 100%;
+  padding: 60px 20px;
+}
+
+.page-section.alt {
+  background: #f9f9f9;
+}
+
+.page-section.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.page-section.dark {
+  background: #1a1a2e;
+  color: white;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-large {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}

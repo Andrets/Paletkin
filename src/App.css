@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: white;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* Container with max-width 1792px */
+.container {
+  max-width: 1792px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}

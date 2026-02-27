@@ -1,0 +1,20 @@
+.page-section {
+  width: 100%;
+  padding: 60px 20px;
+}
+
+.page-section .container {
+  max-width: 1792px;
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-section {
+    padding: 30px 15px;
+  }
+}
