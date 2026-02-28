@@ -15,13 +15,16 @@ const ServiceIcon = () => (
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const dropdownMenuRef = useRef(null)
 
   // close dropdown when clicking outside
   useEffect(() => {
     function handleClick(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setMenuOpen(false)
-      }
+      const target = e.target
+      // If click is inside the toggle (dropdownRef) or inside the opened menu, do nothing
+      if (dropdownRef.current && dropdownRef.current.contains(target)) return
+      if (dropdownMenuRef.current && dropdownMenuRef.current.contains(target)) return
+      setMenuOpen(false)
     }
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
@@ -73,7 +76,7 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <div className={`dropdown-menu ${menuOpen ? 'open' : ''}`}>
+        <div className={`dropdown-menu ${menuOpen ? 'open' : ''}`} ref={dropdownMenuRef}>
           <div className="dropdown-col services-list">
             <ul>
               <li>
