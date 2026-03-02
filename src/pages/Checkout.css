@@ -60,5 +60,6 @@
   color: #eb7300;
   display: flex;
   gap: 10px;
-  letter-spacing: -0.36px
+  letter-spacing: -0.36px;
+  width: fit-content;
 }
