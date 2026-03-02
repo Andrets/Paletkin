@@ -43,11 +43,6 @@
   font-weight: 600;
   font-family: var(--font-tilda);
 }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
 .documents-container {
   padding: 48px;

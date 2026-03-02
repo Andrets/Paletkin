@@ -283,9 +283,6 @@ button {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
 
   .btn {
     padding: 10px 20px;

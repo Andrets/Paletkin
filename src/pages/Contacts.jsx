@@ -5,6 +5,9 @@ import './Contacts.css'
 
 import link from "../assets/image/icons/link.svg"
 
+import OfferSection from '../components/OfferSection'
+
+
 function Contacts() {
   useEffect(() => {
     // Fix for default marker icons in Leaflet
@@ -80,7 +83,7 @@ function Contacts() {
               className="contacts-map"
             >
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                attribution='&copy; <a href="https://www.tile.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={moscowPosition} icon={customIcon}>
@@ -111,22 +114,7 @@ function Contacts() {
         </div>
       </section>
 
-      <section className="offer">
-            <h3>Готовы отправить груз?</h3>
-            <p>Две минуты на оформление, остальное за нами. Доставим день в день</p>
-            <form className="offer-form">
-              <input 
-                type="tel" 
-                placeholder="Ваш номер телефона" 
-                className="offer-input" requiredName="offer-input"
-
-              />
-              <button type="submit" className="order-offer-btn">
-                Оставить заявку
-              </button>
-            </form>
-            <span className="offer-notice">Нажимая кнопку, вы согласаетесь с нашей политикой конфиденциальности</span>
-        </section>
+      <OfferSection title="Готовы отправить груз?" />
     </div>
   )
 }
