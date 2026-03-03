@@ -1,7 +1,7 @@
 import './DeliverySection.css'
 
 import yamrket from '../assets/image/delivery/yamrket.svg'
-import lamoda from '../assets/image/delivery/lamoda.svg'
+import lamoda from '../assets/image/delivery/lamoda.png'
 import megam from '../assets/image/delivery/sbermega.svg'
 import magnit from '../assets/image/delivery/magnit.svg'
 import detmir from '../assets/image/delivery/detmir.svg'
