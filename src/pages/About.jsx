@@ -2,7 +2,8 @@ import './About.css'
 
 import logo from '../assets/image/logo/orange-logo.svg'
 import patner from '../assets/image/icons/partner.svg'
-import delivery from '../assets/image/delivery.png'
+import deliveryFull from '../assets/image/delivery.png'
+import deliveryShort from '../assets/image/delivery-short.png'
 
 import specialist1 from '../assets/image/specialist/specialist-card.png'
 import specialist2 from '../assets/image/specialist/specialist-card2.png'
@@ -12,6 +13,8 @@ import specialist5 from '../assets/image/specialist/specialist-card5.png'
 import specialist6 from '../assets/image/specialist/specialist-card6.png'
 import specialist7 from '../assets/image/specialist/specialist-card7.png'
 
+import { useEffect, useState } from 'react'
+
 import TopDesc from '../components/TopDesc'
 import DifferentSection from '../components/DifferentSection'
 import CarsSection from '../components/CarsSection'
@@ -19,6 +22,7 @@ import StepsSection from '../components/StepsSection'
 import PartnersSection from '../components/PartnersSection'
 import ReviewsSection from '../components/ReviewsSection'
 import OfferSection from '../components/OfferSection'
+import SliderBase from '../components/SliderBase'
 
 function About() {
   const specialists = [
@@ -30,6 +34,31 @@ function About() {
     { img: specialist6, name: 'Ольга Яковлева', job: 'Технический директор' },
     { img: specialist7, name: 'Игорь Петров', job: 'Юрист' }
   ]
+
+  const [specialistIndex, setSpecialistIndex] = useState(0)
+  const [useSpecialistSlider, setUseSpecialistSlider] = useState(false)
+
+  const handleSpecialistPrev = () => {
+    setSpecialistIndex((idx) => (idx > 0 ? idx - 1 : specialists.length - 1))
+  }
+
+  const handleSpecialistNext = () => {
+    setSpecialistIndex((idx) => (idx < specialists.length - 1 ? idx + 1 : 0))
+  }
+
+  useEffect(() => {
+    const updateMode = () => {
+      if (typeof window === 'undefined') return
+      setUseSpecialistSlider(window.innerWidth < 1500)
+    }
+
+    updateMode()
+    window.addEventListener('resize', updateMode)
+
+    return () => {
+      window.removeEventListener('resize', updateMode)
+    }
+  }, [])
 
   return (
     <div className="about-page">
@@ -107,7 +136,10 @@ function About() {
             </div>
             
             <div className="delivery-body">
-              <img src={delivery} alt="Delivery" />
+              <picture>
+                <source media="(max-width: 1400px)" srcSet={deliveryFull} />
+                <img src={deliveryShort} alt="Delivery" />
+              </picture>
               <button className="delivery-button">Скачать презентацию компании</button>
             </div>
           </div>
@@ -121,30 +153,128 @@ function About() {
       <section className="specialist">
         <div className="container">
           <div className="specialist-content">
-            <div className="specialist-header">
-              <h2 className="specialist-title">Люди, которые делают Paletkin лучше</h2>
-              <p className="specialist-subtitle">Каждый здесь знает, что значит доставить груз честно и вовремя</p>
-            </div>
-            <div className="specialist-grid">
-              {specialists.map((s, i) => (
-                <div
-                  key={i}
-                  className="specialist-item"
-                  style={{ backgroundImage: `url(${s.img})` }}
-                >
-                  <div className="specialist-info">
-                    <div className="specialist-name">{s.name}</div>
-                    <div className="specialist-job">{s.job}</div>
+            {useSpecialistSlider ? (
+              <SliderBase items={specialists}>
+                {({ step, maxStep, goTo, sliderRef, trackRef, offset, swipeHandlers }) => (
+                  <>
+                    <div className="specialist-header">
+                      <div className="specialist-header-text">
+                        <h2 className="specialist-title">Люди, которые делают Paletkin лучше</h2>
+                        <p className="specialist-subtitle">
+                          Каждый здесь знает, что значит доставить груз честно и вовремя
+                        </p>
+                      </div>
+                      <div className="specialist-controls">
+                        <button
+                          type="button"
+                          className="slider-btn prev"
+                          onClick={() => goTo(step - 1)}
+                          disabled={step === 0}
+                        >
+                          ❮
+                        </button>
+                        <button
+                          type="button"
+                          className="slider-btn next"
+                          onClick={() => goTo(step + 1)}
+                          disabled={step >= maxStep}
+                        >
+                          ❯
+                        </button>
+                      </div>
+                    </div>
+                    <div className="specialist-slider" ref={sliderRef}>
+                      <div
+                        className="specialist-track"
+                        ref={trackRef}
+                        style={{ transform: `translateX(-${offset}px)` }}
+                        {...swipeHandlers}
+                      >
+                        {specialists.map((s, i) => (
+                          <div
+                            key={i}
+                            className="specialist-item specialist-item--slide"
+                            style={{ backgroundImage: `url(${s.img})` }}
+                          >
+                            <div className="specialist-info">
+                              <div className="specialist-name">{s.name}</div>
+                              <div className="specialist-job">{s.job}</div>
+                            </div>
+                          </div>
+                        ))}
+                        <div className="specialist-item specialist-placeholder specialist-item--slide">
+                          <div className="specialist-info specialist-info--center">
+                            <div className="specialist-count">100+</div>
+                            <div className="specialist-desc">
+                              Членов команды работают над Paletkin каждый день
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max={maxStep}
+                      value={step}
+                      onChange={(e) => goTo(Number(e.target.value))}
+                      className="slider-range"
+                    />
+                  </>
+                )}
+              </SliderBase>
+            ) : (
+              <>
+                <div className="specialist-header">
+                  <div className="specialist-header-text">
+                    <h2 className="specialist-title">Люди, которые делают Paletkin лучше</h2>
+                    <p className="specialist-subtitle">
+                      Каждый здесь знает, что значит доставить груз честно и вовремя
+                    </p>
+                  </div>
+                  <div className="specialist-controls">
+                    <button
+                      type="button"
+                      className="slider-btn prev"
+                      onClick={handleSpecialistPrev}
+                    >
+                      ❮
+                    </button>
+                    <button
+                      type="button"
+                      className="slider-btn next"
+                      onClick={handleSpecialistNext}
+                    >
+                      ❯
+                    </button>
                   </div>
                 </div>
-              ))}
-              <div className="specialist-item specialist-placeholder">
-                <div className="specialist-info specialist-info--center">
-                  <div className="specialist-count">100+</div>
-                  <div className="specialist-desc">Членов команды работают над Paletkin каждый день</div>
+                <div className="specialist-grid">
+                  {specialists.map((s, i) => (
+                    <div
+                      key={i}
+                      className={`specialist-item${
+                        i === specialistIndex ? ' specialist-item--active' : ''
+                      }`}
+                      style={{ backgroundImage: `url(${s.img})` }}
+                    >
+                      <div className="specialist-info">
+                        <div className="specialist-name">{s.name}</div>
+                        <div className="specialist-job">{s.job}</div>
+                      </div>
+                    </div>
+                  ))}
+                  <div className="specialist-item specialist-placeholder">
+                    <div className="specialist-info specialist-info--center">
+                      <div className="specialist-count">100+</div>
+                      <div className="specialist-desc">
+                        Членов команды работают над Paletkin каждый день
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </>
+            )}
           </div>
         </div>
       </section>

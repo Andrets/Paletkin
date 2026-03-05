@@ -617,6 +617,12 @@
   transition: transform 0.35s ease;
 }
 
+@media (max-width: 768px) {
+  .marketplace-related-services__buttons {
+    display: none;
+  }
+}
+
 .marketplace-related-services__card {
   position: relative;
   min-width: 392px;

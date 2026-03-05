@@ -195,6 +195,10 @@
 /* Adaptive */
 
 @media (max-width: 768px) {
+  .blog-section-buttons {
+    display: none;
+  }
+
   .blog-section-title {
     font-size: 32px;
   }

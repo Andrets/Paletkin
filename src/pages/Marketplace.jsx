@@ -26,6 +26,7 @@ import TariffSection from '../components/TariffsSection'
 import VideoSection from '../components/VideoSection'
 import FaqSection from '../components/FaqSection'
 import OfferSection from '../components/OfferSection'
+import SliderBase from '../components/SliderBase'
 import TopDesc from '../components/TopDesc'
 
 function Marketplace() {
@@ -191,69 +192,6 @@ function Marketplace() {
       icon: scotchMaterial
     }
   ]
-
-  const [serviceStep, setServiceStep] = useState(0)
-  const [serviceMaxStep, setServiceMaxStep] = useState(0)
-  const [serviceOffset, setServiceOffset] = useState(0)
-  const serviceSliderRef = useRef(null)
-  const serviceTrackRef = useRef(null)
-
-  const measureServiceSlider = useCallback(() => {
-    if (!serviceTrackRef.current || !serviceSliderRef.current) return
-
-    const trackWidth = serviceTrackRef.current.scrollWidth
-    const viewWidth = serviceSliderRef.current.offsetWidth
-    const overflow = trackWidth - viewWidth
-
-    if (overflow <= 0) {
-      setServiceMaxStep(0)
-      setServiceOffset(0)
-      setServiceStep(0)
-      serviceTrackRef.current._stepOffsets = [0]
-      return
-    }
-
-    const cards = serviceTrackRef.current.children
-    if (!cards.length) return
-
-    const stepOffsets = [0]
-    for (let i = 1; i < cards.length; i++) {
-      const snap = cards[i].offsetLeft
-      if (snap >= overflow) {
-        stepOffsets.push(overflow)
-        break
-      }
-      stepOffsets.push(snap)
-    }
-
-    if (stepOffsets[stepOffsets.length - 1] < overflow) {
-      stepOffsets.push(overflow)
-    }
-
-    serviceTrackRef.current._stepOffsets = stepOffsets
-    const newMaxStep = stepOffsets.length - 1
-    setServiceMaxStep(newMaxStep)
-    setServiceStep((prev) => {
-      const clamped = Math.min(prev, newMaxStep)
-      setServiceOffset(stepOffsets[clamped])
-      return clamped
-    })
-  }, [])
-
-  useEffect(() => {
-    measureServiceSlider()
-    window.addEventListener('resize', measureServiceSlider)
-    return () => window.removeEventListener('resize', measureServiceSlider)
-  }, [measureServiceSlider, relatedServiceSlides.length])
-
-  const goToServiceStep = (newStep) => {
-    const offsets = serviceTrackRef.current?._stepOffsets
-    if (!offsets) return
-
-    const clamped = Math.max(0, Math.min(newStep, serviceMaxStep))
-    setServiceStep(clamped)
-    setServiceOffset(offsets[clamped])
-  }
 
   return (
     <div className="marketplace-page">
@@ -428,58 +366,71 @@ function Marketplace() {
 
       <section className="marketplace-related-services">
         <div className="container">
-          <div className="marketplace-related-services__top">
-            <h2>Сопутствующие услуги</h2>
-            <div className="marketplace-related-services__buttons">
-              <button
-                type="button"
-                className="slider-btn prev"
-                onClick={() => goToServiceStep(serviceStep - 1)}
-                disabled={serviceStep === 0}
-              >
-                ❮
-              </button>
-              <button
-                type="button"
-                className="slider-btn next"
-                onClick={() => goToServiceStep(serviceStep + 1)}
-                disabled={serviceStep >= serviceMaxStep}
-              >
-                ❯
-              </button>
-            </div>
-          </div>
+          <SliderBase items={relatedServiceSlides}>
+            {({ step, maxStep, goTo, sliderRef, trackRef, offset, swipeHandlers }) => (
+              <>
+                <div className="marketplace-related-services__top">
+                  <h2>Сопутствующие услуги</h2>
+                  <div className="marketplace-related-services__buttons">
+                    <button
+                      type="button"
+                      className="slider-btn prev"
+                      onClick={() => goTo(step - 1)}
+                      disabled={step === 0}
+                    >
+                      ❮
+                    </button>
+                    <button
+                      type="button"
+                      className="slider-btn next"
+                      onClick={() => goTo(step + 1)}
+                      disabled={step >= maxStep}
+                    >
+                      ❯
+                    </button>
+                  </div>
+                </div>
 
-          <div className="marketplace-related-services__slider" ref={serviceSliderRef}>
-            <div
-              className="marketplace-related-services__track"
-              ref={serviceTrackRef}
-              style={{ transform: `translateX(-${serviceOffset}px)` }}
-            >
-              {relatedServiceSlides.map((item) => (
-                <article key={item.title} className="marketplace-related-services__card">
-                  {item.isPopular && <span className="marketplace-related-services__popular">Популярное</span>}
-                  <img src={item.icon} alt={item.title} className="marketplace-related-services__icon" />
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <button type="button">{item.buttonLabel}</button>
-                </article>
-              ))}
-            </div>
-          </div>
+                <div className="marketplace-related-services__slider" ref={sliderRef}>
+                  <div
+                    className="marketplace-related-services__track"
+                    ref={trackRef}
+                    style={{ transform: `translateX(-${offset}px)` }}
+                    {...swipeHandlers}
+                  >
+                    {relatedServiceSlides.map((item) => (
+                      <article key={item.title} className="marketplace-related-services__card">
+                        {item.isPopular && (
+                          <span className="marketplace-related-services__popular">Популярное</span>
+                        )}
+                        <img
+                          src={item.icon}
+                          alt={item.title}
+                          className="marketplace-related-services__icon"
+                        />
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                        <button type="button">{item.buttonLabel}</button>
+                      </article>
+                    ))}
+                  </div>
+                </div>
 
-          <input
-            type="range"
-            min="0"
-            max={serviceMaxStep}
-            value={serviceStep}
-            onChange={(e) => goToServiceStep(Number(e.target.value))}
-            className="marketplace-related-services__range"
-          />
+                <input
+                  type="range"
+                  min="0"
+                  max={maxStep}
+                  value={step}
+                  onChange={(e) => goTo(Number(e.target.value))}
+                  className="marketplace-related-services__range"
+                />
 
-          <button type="button" className="marketplace-related-services__all-btn">
-            Смотреть все услуги
-          </button>
+                <button type="button" className="marketplace-related-services__all-btn">
+                  Смотреть все услуги
+                </button>
+              </>
+            )}
+          </SliderBase>
         </div>
       </section>
 

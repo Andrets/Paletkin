@@ -6,11 +6,11 @@
 }
 
 .partners-title {
-  font-family: var(--font-tilda);
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -1.12px;
+  font-family: var(--font-inter-tight);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.36px;
   color: #050200;
   text-align: center;
   margin: 0 0 48px;
@@ -34,6 +34,15 @@
   width: max-content;
   animation: partnersScroll 30s linear infinite;
   will-change: transform;
+}
+
+@keyframes partnersScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .partners-logo {
