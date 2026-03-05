@@ -6,6 +6,7 @@ import './Contacts.css'
 import link from "../assets/image/icons/link.svg"
 
 import OfferSection from '../components/OfferSection'
+import TopDesc from '../components/TopDesc'
 
 
 function Contacts() {
@@ -40,8 +41,10 @@ function Contacts() {
       <section className="contacts">
         <div className="container">
           <div className="contacts-header">
-            <h2>Контакты</h2>
-            <p>Выберите удобный способ связи. Мы всегда готовы ответить на ваши<br/>вопросы и помочь с решением логистических задач.</p>
+            <TopDesc
+              title="Контакты"
+              body="Выберите удобный способ связи. Мы всегда готовы ответить на ваши вопросы и помочь с решением логистических задач."
+            />
           </div>
           <div className="contacts-links">
             <div className="contacts-item">

@@ -4,6 +4,7 @@ import './Checkout.css'
 import FaqSection from '../components/FaqSection'
 import DocumentsCtaSection from '../components/DocumentsCtaSection'
 import CalculatorComponent from '../components/Calculator'
+import TopDesc from '../components/TopDesc'
 
 import fire from "../assets/image/icons/fire.svg"
 
@@ -15,8 +16,10 @@ function Checkout() {
       <div className="checkout-top">
         <div className="container">
           <div className="checkout-top-content">
-              <h1>Оформление заказа</h1>
-              <span>Заполните форму для надёжной организации доставки. Все заявки <br/>обрабатываются в течение 15 минут</span>
+              <TopDesc
+                title="Оформление заказа"
+                body="Заполните форму для надёжной организации доставки. Все заявки обрабатываются в течение 15 минут."
+              />
           </div>
         </div>
       </div>

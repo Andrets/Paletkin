@@ -212,10 +212,29 @@
   border-radius: 6px;
 }
 
+@media (max-width: 1024px) {
+  .calculator-component {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .calc-map-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    height: 50vh;
+    min-height: 320px;
+    max-height: 480px;
+  }
+  .calc-form-wrapper {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .calculator-component {
     flex-direction: column;
     min-height: auto;
+    padding: 24px 20px;
   }
 
   .calc-map-wrapper {
@@ -227,6 +246,15 @@
 
   .calc-form-wrapper {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator-component {
+    padding: 16px;
+  }
+  .calc-map-wrapper {
+    height: 320px;
   }
 }
 

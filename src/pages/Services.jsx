@@ -4,6 +4,7 @@ import DocumentsCtaSection from '../components/DocumentsCtaSection'
 import CalculatorComponent from '../components/Calculator'
 import FaqSection from '../components/FaqSection'
 import ServiceSection from '../components/ServicesComponent'
+import TopDesc from '../components/TopDesc'
 
 
 import companys from '../assets/image/partners/companys.svg'
@@ -17,11 +18,10 @@ function Services() {
       <div className="container">
         <div className="services-container">
           <div className="services-top">
-            <h1>
-              Все услуги
-            </h1>
-            <p>Paletkin предоставляет комплексные услуги грузоперевозок, адаптированные под потребности маркетплейсов и B2B-партнёров. 
-              От срочной доставки до профессионального сопровождения грузов — мы обеспечиваем надёжность на каждом этапе.</p>
+            <TopDesc
+              title="Все услуги"
+              body="Paletkin предоставляет комплексные услуги грузоперевозок, адаптированные под потребности маркетплейсов и B2B-партнёров. От срочной доставки до профессионального сопровождения грузов — мы обеспечиваем надёжность на каждом этапе."
+            />
           </div>
 
           <div className="service-offer">

@@ -81,28 +81,49 @@ function Map2GIS({ containerId, mapRef, center, zoom, stops, onMapClick, markerI
 
   useEffect(() => {
     let map
+    let cancelled = false
     const key = import.meta.env.VITE_2GIS_MAP_KEY || ''
     if (!key) {
       console.warn('VITE_2GIS_MAP_KEY не задан — добавьте в .env. Карта 2GIS не загружена.')
       return
     }
-    load().then((mapgl) => {
-      mapglRef.current = mapgl
-      // MapGL ожидает координаты в формате [lng, lat]
-      map = new mapgl.Map(containerId, {
-        center: [center[1], center[0]],
-        zoom,
-        key,
-        zoomControl: false,
-      })
-      mapRef.current = map
-      map.on('click', (e) => {
-        const [lng, lat] = e.lngLat
-        onMapClick({ lat, lng })
-      })
-    }).catch((err) => console.error('2GIS MapGL:', err))
+
+    const initMap = async () => {
+      try {
+        // On some Windows setups WebGPU is present but has no available adapter.
+        // In that case 2GIS SDK may spam console with adapter errors.
+        if (navigator.gpu && typeof navigator.gpu.requestAdapter === 'function') {
+          const adapter = await navigator.gpu.requestAdapter()
+          if (!adapter) {
+            console.warn('WebGPU adapter недоступен. Карта 2GIS пропущена для этой среды.')
+            return
+          }
+        }
+
+        const mapgl = await load()
+        if (cancelled) return
+        mapglRef.current = mapgl
+        // MapGL ожидает координаты в формате [lng, lat]
+        map = new mapgl.Map(containerId, {
+          center: [center[1], center[0]],
+          zoom,
+          key,
+          zoomControl: false,
+        })
+        mapRef.current = map
+        map.on('click', (e) => {
+          const [lng, lat] = e.lngLat
+          onMapClick({ lat, lng })
+        })
+      } catch (err) {
+        console.warn('2GIS MapGL не инициализирован:', err)
+      }
+    }
+
+    initMap()
 
     return () => {
+      cancelled = true
       markersRef.current.forEach((m) => m.destroy())
       markersRef.current = []
       if (polylineRef.current) {

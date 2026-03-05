@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Documents.css'
 import FaqSection from '../components/FaqSection'
 import DocumentsCtaSection from '../components/DocumentsCtaSection'
+import TopDesc from '../components/TopDesc'
 
 const Documents = () => {
   const [activeTab, setActiveTab] = useState('all')
@@ -64,8 +65,10 @@ const Documents = () => {
       <section className="page-header">
         <div className="container">
           <div className="page-header-content">
-            <h1>Документы</h1>
-            <span>Вся необходимая документация для оформления сотрудничества <br/>и ведения отчетности.</span>
+            <TopDesc
+              title="Документы"
+              body="Вся необходимая документация для оформления сотрудничества и ведения отчетности."
+            />
           </div>
         </div>
       </section>

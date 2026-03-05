@@ -52,6 +52,9 @@
 }
 .service-body-item img {
   height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 .service-item-text {
   display: flex;
@@ -65,4 +68,54 @@
   background-color: #f87f07;
   border: none;
   color: #fff;
+}
+
+/* Адаптив ServicesComponent */
+@media (max-width: 1024px) {
+  .service-all {
+    padding: 80px 0;
+  }
+  .service-all-body {
+    padding: 32px 24px;
+  }
+  .service-body-item {
+    padding: 32px 24px;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-all {
+    padding: 56px 0;
+  }
+  .service-all-body {
+    padding: 24px 16px;
+  }
+  .service-body-top {
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .service-body {
+    gap: 8px;
+  }
+  .service-body-item {
+    padding: 24px 20px;
+    flex: 1 1 100%;
+  }
+  .service-body-item img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-all {
+    padding: 40px 0;
+  }
+  .service-body-item {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .service-body-item img {
+    height: 36px;
+  }
 }

@@ -280,3 +280,26 @@
     padding: 12px 0;
   }
 }
+
+@media (max-width: 480px) {
+  .tariff-section {
+    padding: 16px 0;
+  }
+  .tariff-section-header {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .tariff-section-title {
+    font-size: 20px;
+  }
+  .tariff-section-subtitle {
+    font-size: 13px;
+  }
+  .tariff-section-warehouses,
+  .tariff-section-prices-header {
+    padding: 16px;
+  }
+  .tariff-section-price-row {
+    padding: 10px 0;
+  }
+}

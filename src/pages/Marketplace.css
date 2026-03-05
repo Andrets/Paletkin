@@ -845,3 +845,65 @@
     font-size: 32px;
   }
 }
+
+@media (max-width: 480px) {
+  .marketplace-top {
+    padding: 20px 0 24px;
+  }
+  .marketplace-top h1 {
+    font-size: 28px;
+  }
+  .marketplace-top p {
+    font-size: 14px;
+  }
+  .regular-supplies {
+    padding: 32px 0 48px;
+  }
+  .regular-supplies__content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .regular-supplies__header {
+    margin-left: 0;
+    text-align: left;
+  }
+  .regular-supplies__header h2 {
+    font-size: 28px;
+  }
+  .regular-supplies__header p {
+    font-size: 14px;
+  }
+  .regular-supplies__image img {
+    max-width: 100%;
+    width: 100%;
+  }
+  .regular-supplies__markets {
+    grid-template-columns: 1fr;
+  }
+  .regular-supplies__market-name,
+  .regular-supplies__market-dot,
+  .regular-supplies__market-count {
+    font-size: 18px;
+  }
+  .marketplace-double-cta__card h3,
+  .marketplace-related-services__top h2 {
+    font-size: 28px;
+  }
+  .marketplace-related-services__card {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 260px;
+  }
+  .marketplace-related-services__card h3 {
+    font-size: 24px;
+  }
+  .marketplace-calculator,
+  .marketplace-tariff,
+  .marketplace-video,
+  .marketplace-faq {
+    padding-bottom: 36px;
+  }
+  .marketplace-tariff {
+    padding-top: 36px;
+  }
+}

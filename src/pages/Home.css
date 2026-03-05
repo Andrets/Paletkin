@@ -87,3 +87,148 @@
 .home-tariff {
   padding: 144px 0;
 }
+
+/* ========== Адаптив Home ========== */
+@media (max-width: 1280px) {
+  .home-offer-text h2 {
+    font-size: 56px;
+  }
+  .home-offer-blocks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-offer {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+  .home-offer-content {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .home-offer-text h2 {
+    font-size: 48px;
+  }
+  .home-offer-text h2 img {
+    max-width: 120px;
+    height: auto;
+  }
+  .home-offer-blocks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .home-blocks-item {
+    padding: 10px;
+    gap: 16px;
+  }
+  .home-blocks-image {
+    width: 80px;
+    height: 80px;
+  }
+  .home-blocks-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  .home-blocks-text {
+    font-size: 18px;
+  }
+  .home-banner img {
+    max-width: 50%;
+  }
+  .home-blog,
+  .home-tariff {
+    padding: 80px 0;
+  }
+  .home-video {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-offer-text h2 {
+    font-size: 36px;
+  }
+  .home-offer-text p {
+    font-size: 16px;
+  }
+  .home-offer-blocks {
+    grid-template-columns: 1fr;
+  }
+  .home-blocks-item {
+    flex-direction: row;
+  }
+  .home-blocks-image {
+    width: 64px;
+    height: 64px;
+  }
+  .home-blocks-text {
+    font-size: 16px;
+  }
+  .home-banner {
+    flex-wrap: wrap;
+    padding: 24px 0;
+  }
+  .home-banner img {
+    max-width: 100%;
+  }
+  .home-calculator,
+  .home-services,
+  .home-tariff,
+  .home-video,
+  .home-different,
+  .home-cars,
+  .home-blog,
+  .home-steps,
+  .home-reviews,
+  .home-whyus,
+  .home-faq {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .home-blog {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-offer-text h2 {
+    font-size: 28px;
+  }
+  .home-offer-text h2 img {
+    display: block;
+    margin-top: 8px;
+    max-width: 160px;
+  }
+  .home-offer-text p {
+    font-size: 14px;
+  }
+  .home-blocks-item {
+    padding: 12px;
+    gap: 12px;
+  }
+  .home-blocks-image {
+    width: 56px;
+    height: 56px;
+  }
+  .home-blocks-text {
+    font-size: 14px;
+  }
+  .home-banner img {
+    max-width: 100%;
+  }
+  .home-calculator,
+  .home-services,
+  .home-tariff,
+  .home-video,
+  .home-different,
+  .home-cars,
+  .home-blog,
+  .home-steps,
+  .home-reviews,
+  .home-whyus,
+  .home-faq {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}

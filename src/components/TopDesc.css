@@ -1,0 +1,31 @@
+.top-text {
+    display: flex;
+    padding-top: 48px;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 32px;
+}
+  
+.top-text h1 {
+    font-family: var(--font-tilda);
+    font-size: 72px;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.2;
+    line-height: 0.9;
+    letter-spacing: -1.44px;
+    text-align: left;
+    color: #050200;
+    align-self: center;
+}
+
+.top-text p {
+    font-family: var(--font-inter-tight);
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -0.36px;
+    text-align: left;
+    color: #353332;
+    max-width: 587px;
+}

@@ -26,6 +26,7 @@ import TariffSection from '../components/TariffsSection'
 import VideoSection from '../components/VideoSection'
 import FaqSection from '../components/FaqSection'
 import OfferSection from '../components/OfferSection'
+import TopDesc from '../components/TopDesc'
 
 function Marketplace() {
   const marketplaceWarehouses = [
@@ -259,10 +260,10 @@ function Marketplace() {
       <div className="marketplace-top">
         <div className="container">
           <div className="marketplace-top-body">
-            <h1>
-            Оперативная доставка<br/> грузов на склады<br/> маркетплейсов
-            </h1>
-            <p>Берем на себя всю логистику до маркетплейсов: от забора груза с вашего склада до сдачи в пункт приёма. Контролируем правильность оформления документов и соблюдение графиков поставки. Ваша задача — продавать, наша — доставить груз вовремя и без штрафов.</p>
+            <TopDesc
+              title="Оперативная доставка грузов на склады маркетплейсов"
+              body="Берем на себя всю логистику до маркетплейсов: от забора груза с вашего склада до сдачи в пункт приёма. Контролируем правильность оформления документов и соблюдение графиков поставки. Ваша задача — продавать, наша — доставить груз вовремя и без штрафов."
+            />
           </div>
         </div>        
       </div>

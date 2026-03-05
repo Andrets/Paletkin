@@ -12,6 +12,7 @@ import specialist5 from '../assets/image/specialist/specialist-card5.png'
 import specialist6 from '../assets/image/specialist/specialist-card6.png'
 import specialist7 from '../assets/image/specialist/specialist-card7.png'
 
+import TopDesc from '../components/TopDesc'
 import DifferentSection from '../components/DifferentSection'
 import CarsSection from '../components/CarsSection'
 import StepsSection from '../components/StepsSection'
@@ -35,25 +36,20 @@ function About() {
       
       <section className="intro-section">
         <div className="container">
-          <div className="intro-content">
-            <h1>О компании</h1>
-            <p>
-              Мы специализируемся на грузоперевозках для B2B-сегмента и поставщиков маркетплейсов. Наш приоритет — комплексный подход: от экспресс-доставки до полного экспедирования грузов. Мы знаем требования торговых площадок и понимаем ценность времени в бизнесе, поэтому гарантируем надежность и контроль на каждом этапе пути.
-            </p>
-          </div>
+         <TopDesc title="О компании" body="Мы специализируемся на грузоперевозках для B2B-сегмента и поставщиков маркетплейсов. Наш приоритет — комплексный подход: от экспресс-доставки до полного экспедирования грузов. Мы знаем требования торговых площадок и понимаем ценность времени в бизнесе, поэтому гарантируем надежность и контроль на каждом этапе пути." />
         </div>
       </section>
 
-      <section className="partner">
+      <section className="partner-about">
         <div className="container">
-          <div className="partner-content">
-            <div className="partner-text">
-              <p className="partner-title">
+          <div className="partner-about-content">
+            <div className="partner-about-text">
+              <p className="partner-about-title">
                 Надёжный партнёр <br/> по транспортной и логистической доставке для <span className="highlight">B2B и маркетплейсов <br/> в России и СНГ</span>
-                <img src={patner} alt="Partner Icon" />
+                <img src={patner} alt="partner-about Icon" />
               </p>
             </div>
-            <div className="partner-image">
+            <div className="partner-about-image">
               <img src={logo} alt="Paletkin Logo" />
             </div>
           </div>

@@ -47,3 +47,23 @@
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
+
+@media (max-width: 480px) {
+  .partners-section {
+    padding: 48px 0 64px;
+  }
+  .partners-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  .partners-band {
+    padding: 20px 0;
+  }
+  .partners-track {
+    gap: 32px;
+  }
+  .partners-logo img {
+    height: 36px;
+    max-width: 140px;
+  }
+}

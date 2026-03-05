@@ -128,12 +128,12 @@ function Footer() {
       {/* Footer Bottom */}
       <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p className="copyright">© 2026 Paletkin. Все права защищены.</p>
             <div className="footer-legal">
               <a href="#cookies">Настройки cookies</a>
               <a href="#terms">Условия использования сервиса</a>
               <a href="#privacy">Политика конфиденциальности</a>
             </div>
+            <p className="copyright">© 2025 Paletkin. Все права защищены.</p>
           </div>
       </div>
 
