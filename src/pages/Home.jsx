@@ -118,11 +118,9 @@ function Home() {
         </div>
       </div>
 
-      <div className="home-cars">
-        <div className="container">
-          <CarsSection />
-        </div>
-      </div>
+   
+      <CarsSection />
+
 
       <div className="home-blog">
         <div className="container">
