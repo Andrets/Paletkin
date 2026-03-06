@@ -41,7 +41,7 @@ function Home() {
           <div className="home-offer-content">
             <div className="home-offer-text">
               <p>Надежная и быстрая доставка на Wildberries, Ozon, Яндекс.Маркет <br />и другие маркетплейсы.</p>
-              <h2>Доставка <br />на маркетплейсы <br /><span>по всей России</span> 
+              <h2>Доставка на маркетплейсы <span>по всей России</span> 
               <img src={companys} alt="Партнеры" />
               </h2>
             </div>
@@ -85,7 +85,7 @@ function Home() {
 
       <div className="home-calculator">
         <div className="container">
-          <CalculatorComponent />
+          <CalculatorComponent mode="estimate" />
         </div>
       </div>
 

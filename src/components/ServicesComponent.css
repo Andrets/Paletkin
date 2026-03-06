@@ -34,8 +34,8 @@
 
 
 .service-body {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 .service-body-item {
@@ -46,6 +46,7 @@
   gap: 24px;
   border-radius: 8px;
   background-color: #ededed;
+  min-width: 0;
 }
 .service-body-item img {
   height: 48px;
@@ -57,7 +58,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 459px;
+  min-width: 0;
+  max-width: 100%;
+}
+.service-item-text h3,
+.service-item-text p {
+  margin: 0;
 }
 .service-body-item button {
   padding: 12px 24px;
@@ -67,17 +73,29 @@
   color: #fff;
 }
 
-/* Адаптив ServicesComponent */
-@media (max-width: 1024px) {
+@media (max-width: 1220px) {
+  .service-body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 960px и уже: две колонки сохраняем, ужимаем блоки */
+@media (max-width: 960px) {
   .service-all {
     padding: 80px 0;
   }
   .service-all-body {
     padding: 32px 24px;
   }
+  .service-body {
+    gap: 12px;
+  }
   .service-body-item {
     padding: 32px 24px;
-    min-width: 0;
+    gap: 20px;
+  }
+  .service-body-item img {
+    height: 44px;
   }
 }
 
@@ -89,24 +107,40 @@
     padding: 24px 16px;
   }
   .service-body-top {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     margin-bottom: 24px;
   }
+  .service-body-top button {
+    width: 100%;
+    text-align: center;
+  }
   .service-body {
-    gap: 8px;
+    gap: 10px;
   }
   .service-body-item {
     padding: 24px 20px;
-    flex: 1 1 100%;
+    gap: 16px;
   }
   .service-body-item img {
     height: 40px;
   }
 }
 
+/* 480px и уже: одна колонка, карточки на всю ширину */
 @media (max-width: 480px) {
   .service-all {
     padding: 40px 0;
+  }
+  .service-all-body {
+    padding: 20px 16px;
+  }
+  .service-body-top {
+    margin-bottom: 20px;
+  }
+  .service-body {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   .service-body-item {
     padding: 20px 16px;

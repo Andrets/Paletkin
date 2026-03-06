@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './DifferentSection.css'
 import gear from '../assets/image/different/gear.png'
 import van from '../assets/image/different/van.png'
 import box from '../assets/image/different/box.png'
@@ -32,7 +33,6 @@ const slidesData = [
 function DifferentSection() {
   return (
     <section className="different">
-      <div className="container">
         <div className="different-content">
           <SliderBase items={slidesData}>
             {({ step, maxStep, goTo, sliderRef, trackRef, offset, swipeHandlers }) => (
@@ -83,7 +83,6 @@ function DifferentSection() {
               </>
             )}
           </SliderBase>
-        </div>
       </div>
     </section>
   )

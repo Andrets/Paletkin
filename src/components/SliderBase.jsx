@@ -72,6 +72,15 @@ function SliderBase({ items = [], initialStep = 0, children }) {
   useEffect(() => {
     measure()
     window.addEventListener('resize', measure)
+    const el = sliderRef.current
+    if (el && typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(measure)
+      ro.observe(el)
+      return () => {
+        window.removeEventListener('resize', measure)
+        ro.disconnect()
+      }
+    }
     return () => window.removeEventListener('resize', measure)
   }, [measure, items.length])
 

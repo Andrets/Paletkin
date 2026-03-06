@@ -237,8 +237,12 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
   const pickupDateFieldRef = useRef(null)
   const deliveryDateFieldRef = useRef(null)
   const vehicleCarouselRef = useRef(null)
+  const vehicleTrackRef = useRef(null)
   const vehicleCardRefs = useRef([])
   const [edgeFadedCards, setEdgeFadedCards] = useState(new Set())
+  const [vehicleAtStart, setVehicleAtStart] = useState(true)
+  const [vehicleAtEnd, setVehicleAtEnd] = useState(false)
+  const [isVehicleTouching, setIsVehicleTouching] = useState(false)
 
   const [routeData, setRouteData] = useState({
     distanceKm: 0,
@@ -319,6 +323,10 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
 
   const handleMapClick = async ({ lat, lng }) => {
     if (addingStop) {
+      if (stops.length >= 5) {
+        setAddingStop(false)
+        return
+      }
       const fetchedAddress = await reverseGeocode(lat, lng)
       const address = fetchedAddress || `${lat.toFixed(5)}, ${lng.toFixed(5)}`
       const newStop = { address, coords: { lat, lng } }
@@ -425,6 +433,43 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
     return () => observer.disconnect()
   }, [cargoType, vehicles.length])
 
+  useEffect(() => {
+    if (cargoType !== 'Выделенный транспорт') return
+    handleVehicleScroll()
+  }, [cargoType, vehicles.length])
+
+  useEffect(() => {
+    if (cargoType !== 'Выделенный транспорт') return
+    const lastIndex = vehicles.length - 1
+    setVehicleAtStart(vehicleIndex === 0)
+    setVehicleAtEnd(vehicleIndex === lastIndex)
+  }, [cargoType, vehicleIndex, vehicles.length])
+
+  const scrollToVehicle = (index) => {
+    const track = vehicleTrackRef.current
+    const card = vehicleCardRefs.current[index]
+    if (!track || !card) return
+    const target = card.offsetLeft - 64 // match horizontal padding in CSS
+    track.scrollTo({ left: target, behavior: 'smooth' })
+  }
+
+  const handleVehicleScroll = () => {
+    const track = vehicleTrackRef.current
+    if (!track) return
+    const totalScrollable = track.scrollWidth - track.clientWidth
+    if (totalScrollable <= 0) {
+      setVehicleAtStart(true)
+      setVehicleAtEnd(true)
+      return
+    }
+    const sl = track.scrollLeft
+    const edgeTolerance = 4
+    const atStart = sl <= edgeTolerance
+    const atEnd = sl >= totalScrollable - edgeTolerance
+    setVehicleAtStart(atStart)
+    setVehicleAtEnd(atEnd)
+  }
+
   const applyDate = () => {
     if (!dateModalField) return
     setFieldDate(dateModalField, tempDate, null)
@@ -530,7 +575,10 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
           <button
             type="button"
             className="add-stop-btn"
-            onClick={() => setAddingStop(true)}
+            onClick={() => {
+              if (stops.length >= 5) return
+              setAddingStop(true)
+            }}
           >
             Указать доп. точку
           </button>
@@ -571,80 +619,113 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
         <div className="address-block">
             <div className="address-requared">
 
-              <input className="address-input field-input"
-                type="text"
-                value={stops[0].address}
-                onFocus={() => setActiveIndex(0)}
-                onChange={(e) => handleAddressChange(0, e.target.value)}
-                placeholder="Откуда забираем"
-              />
+              <div className="address-field address-field--from">
+                <input
+                  className="address-input field-input"
+                  type="text"
+                  value={stops[0].address}
+                  onFocus={() => setActiveIndex(0)}
+                  onChange={(e) => handleAddressChange(0, e.target.value)}
+                  placeholder="Откуда забираем"
+                />
+                <div className="address-cities-group">
+                  {['Москва', 'Санкт-Петербург'].map((city) => (
+                    <button
+                      key={city}
+                      type="button"
+                      className="address-city-tag"
+                      onClick={() => handleAddressChange(0, city)}
+                    >
+                      {city}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-              <button className="address-switch">
-                  <img src={switch_icon} alt="switch" />
+              <button className="address-switch" type="button">
+                <img src={switch_icon} alt="switch" />
+                <span className="address-btn-label address-btn-switch">Поменять местами</span>
               </button>
 
-              <input className="address-input field-input"
-                type="text"
-                value={stops[stops.length - 1].address}
-                onFocus={() => setActiveIndex(stops.length - 1)}
-                onChange={(e) =>
-                  handleAddressChange(stops.length - 1, e.target.value)
-                }
-                placeholder="Куда доставляем"
-              />
+              <div className="address-field address-field--to">
+                <input
+                  className="address-input field-input"
+                  type="text"
+                  value={stops[stops.length - 1].address}
+                  onFocus={() => setActiveIndex(stops.length - 1)}
+                  onChange={(e) => handleAddressChange(stops.length - 1, e.target.value)}
+                  placeholder="Куда доставляем"
+                />
+                <div className="address-cities-group address-cities-group--to">
+                  {['Нижний-Новгород', 'Казань'].map((city) => (
+                    <button
+                      key={city}
+                      type="button"
+                      className="address-city-tag"
+                      onClick={() => handleAddressChange(stops.length - 1, city)}
+                    >
+                      {city}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               <button
-                  type="button" className="address-append"
-                  onClick={() => {
-                    const beforeLast = stops.slice(0, stops.length - 1)
-                    const last = stops[stops.length - 1]
-                    const updated = [...beforeLast, { address: '', coords: null }, last]
-                    setStops(updated)
-                    setActiveIndex(beforeLast.length)
-                  }}
-                >
-                  <img src={append_icon} alt="append" />
-                </button>
+                type="button"
+                className="address-append"
+                onClick={() => {
+                  if (stops.length >= 5) return
+                  const beforeLast = stops.slice(0, stops.length - 1)
+                  const last = stops[stops.length - 1]
+                  const updated = [...beforeLast, { address: '', coords: null }, last]
+                  setStops(updated)
+                  setActiveIndex(beforeLast.length)
+                }}
+              >
+                <img src={append_icon} alt="append" />
+                <span className="address-btn-label">Добавить точку</span>
+              </button>
             </div>
               
             {/* ===== ДОПОЛНИТЕЛЬНЫЕ ТОЧКИ ===== */}
+            {stops.length > 2 && (
+              <div className="extra-stops">
+                <div className="extra-header">
+                  <span>Дополнительные точки</span>
+                </div>
 
-            <div className="extra-stops">
-              <div className="extra-header">
-                <span>Дополнительные точки</span>
+                {stops.slice(1, stops.length - 1).map((stop, idx) => {
+                  const realIndex = idx + 1
 
+                  return (
+                    <div key={realIndex} className="extra-item">
+                      <input
+                        className="address-input field-input"
+                        type="text"
+                        value={stop.address}
+                        onFocus={() => setActiveIndex(realIndex)}
+                        onChange={(e) => handleAddressChange(realIndex, e.target.value)}
+                        placeholder="Введите адрес"
+                      />
+                      <button
+                        className="extra-delete"
+                        type="button"
+                        onClick={() => {
+                          const updated = [...stops]
+                          updated.splice(realIndex, 1)
+                          setStops(updated)
+                        }}
+                      >
+                        <img src={delete_icon} alt="delete_icon" />
+                      </button>
+                    </div>
+                  )
+                })}
               </div>
-
-              {stops.slice(1, stops.length - 1).map((stop, idx) => {
-                const realIndex = idx + 1
-
-                return (
-                  <div key={realIndex} className="extra-item">
-                    <input className="address-input field-input"
-                      type="text"
-                      value={stop.address}
-                      onFocus={() => setActiveIndex(realIndex)}
-                      onChange={(e) =>
-                        handleAddressChange(realIndex, e.target.value)
-                      }
-                      placeholder="Введите адрес"
-                    />
-                    <button className="extra-delete"
-                      type="button"
-                      onClick={() => {
-                        const updated = [...stops]
-                        updated.splice(realIndex, 1)
-                        setStops(updated)
-                      }}
-                    >
-                      <img src={delete_icon} alt="delete_icon" />
-                    </button>
-                  </div>
-                )
-              })}
-            </div>
+            )}
         </div>
         
+        {mode === 'checkout' && (
         <div className="main-info">
           
           <h4 className="info-title">
@@ -984,6 +1065,7 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
             </div>
         </div>
         </div>
+        )}
         
         <div className="transportation">
           <div className="cargo-type">
@@ -1055,48 +1137,90 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
 
           {cargoType === 'Выделенный транспорт' && (
             <div className="calc-animate-in">
-              <div className="vehicle-carousel" ref={vehicleCarouselRef}>
+              <div
+                className={`vehicle-carousel${isVehicleTouching ? ' vehicle-carousel--touching' : ''}`}
+                ref={vehicleCarouselRef}
+              >
                 <button
                   type="button"
                   className="nav prev"
-                  onClick={() => setVehicleIndex((i) => Math.max(0, i - 1))}
+                  disabled={vehicleIndex === 0}
+                  onClick={() =>
+                    setVehicleIndex((i) => {
+                      const next = Math.max(0, i - 1)
+                      scrollToVehicle(next)
+                      return next
+                    })
+                  }
                 >
                   ‹
                 </button>
-                <div className="vehicles">
+                <div
+                  className="vehicles"
+                  ref={vehicleTrackRef}
+                  onTouchStart={() => setIsVehicleTouching(true)}
+                  onTouchEnd={() => setIsVehicleTouching(false)}
+                  onTouchCancel={() => setIsVehicleTouching(false)}
+                  onScroll={handleVehicleScroll}
+                  style={{
+                    paddingLeft: vehicleAtStart ? 24 : vehicleAtEnd ? 0 : 64,
+                    paddingRight: vehicleAtEnd ? 24 : vehicleAtStart ? 0 : 64
+                  }}
+                >
                   {vehicles.map((v, idx) => (
-                    <div
+                    <button
                       key={idx}
+                      type="button"
                       data-index={idx}
                       ref={(el) => { vehicleCardRefs.current[idx] = el }}
-                      className={`vehicle-card ${idx === vehicleIndex ? 'active' : ''} ${
-                        edgeFadedCards.has(idx) ? 'edge-faded' : ''
+                      className={`vehicle-card${idx === vehicleIndex ? ' vehicle-card--active' : ''}${
+                        edgeFadedCards.has(idx) ? ' vehicle-card--edge' : ''
                       }`}
-                      onClick={() => setVehicleIndex(idx)}
+                      style={{ backgroundImage: `url(${v.img})` }}
+                      onClick={() => {
+                        setVehicleIndex(idx)
+                        scrollToVehicle(idx)
+                      }}
                     >
-                      <img src={v.img} alt={v.title} />
-                      <div className="cap">{v.capacity}</div>
-                      <div className="name">{v.title}</div>
-                      <div className="price">{v.price}</div>
-                    </div>
+                      <div className="vehicle-card-weight">{v.capacity}</div>
+                      <div className="vehicle-card-name">{v.title}</div>
+                      <div className="vehicle-card-price">{v.price}</div>
+                    </button>
                   ))}
                 </div>
                 <button
                   type="button"
                   className="nav next"
+                  disabled={vehicleIndex === vehicles.length - 1}
                   onClick={() =>
-                    setVehicleIndex((i) => Math.min(vehicles.length - 1, i + 1))
+                    setVehicleIndex((i) => {
+                      const next = Math.min(vehicles.length - 1, i + 1)
+                      scrollToVehicle(next)
+                      return next
+                    })
                   }
                 >
                   ›
                 </button>
               </div>
+              <input
+                type="range"
+                min="0"
+                max={vehicles.length - 1}
+                value={vehicleIndex}
+                onChange={(e) => {
+                  const next = Number(e.target.value)
+                  setVehicleIndex(next)
+                  scrollToVehicle(next)
+                }}
+                className="vehicle-slider-range"
+              />
             </div>
           )}
         </div>
 
         <div className="services">
-          <h4>Доп. услуги *</h4>
+          <h4>Доп. услуги</h4>
           <div className="service-buttons">
             <button
               className={services.loading ? 'active' : ''}
@@ -1182,6 +1306,27 @@ export default function CalculatorComponent({ mode = 'estimate' }) {
             />
           </div>
         )}
+
+        <div className="calculator-cta-block">
+          <div className="calculator-cta-left">
+            <label className="calculator-cta-toggle">
+              <input
+                type="checkbox"
+                checked={businessDelivery}
+                onChange={(e) => setBusinessDelivery(e.target.checked)}
+                className="calculator-cta-toggle-input"
+              />
+              <span className="calculator-cta-toggle-slider" />
+              <span className="calculator-cta-toggle-label">Бизнес доставка</span>
+            </label>
+            <p className="calculator-cta-disclaimer">
+              Нажимая кнопку, вы соглашаетесь с нашей политикой конфиденциальности
+            </p>
+          </div>
+          <button type="button" className="calculator-cta-btn">
+            Рассчитать стоимость
+          </button>
+        </div>
       </div>
     </div>
   )

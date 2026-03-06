@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
+import './CarsSection.css'
 import venicle from '../assets/image/cars/vehicle-image-container.png'
 import item_car1 from '../assets/image/cars/item-car.png'
 import item_car2 from '../assets/image/cars/item-car2.png'
@@ -88,28 +89,14 @@ const cars = [
 
 function CarsSection() {
   const [selectedId, setSelectedId] = useState(0)
-  const [isMobileSlider, setIsMobileSlider] = useState(false)
-
-  useEffect(() => {
-    const updateMode = () => {
-      if (typeof window === 'undefined') return
-      setIsMobileSlider(window.innerWidth < 500)
-    }
-
-    updateMode()
-    window.addEventListener('resize', updateMode)
-
-    return () => {
-      window.removeEventListener('resize', updateMode)
-    }
-  }, [])
+  const selectedCar = cars.find((c) => c.id === selectedId) ?? cars[0]
 
   return (
     <section className="cars">
       <div className="container">
         <div className="cars-content">
           <div className="cars-text">
-            <h2>Наши автопарк</h2>
+            <h2>Наш автопарк</h2>
             <p>
               Собственный автопарк транспортной компании &laquo;МарсТрансАвто&raquo;
               насчитывает 87 единиц современной техники, которой управляют наши опытные
@@ -118,7 +105,53 @@ function CarsSection() {
             </p>
           </div>
           <div className="cars-body">
-            {isMobileSlider ? (
+            {/* Сетка карточек — скрыта при ширине ≤600px через CSS */}
+            <div className="cars-view cars-view--grid">
+              <div className="cars-left">
+                <div className="cars-title">
+                  <span>{selectedCar.title1}</span>
+                  <span>{selectedCar.title2}</span>
+                </div>
+                <div className="cars-main">
+                  <img src={selectedCar.image} alt={selectedCar.name} />
+                </div>
+                <div className="cars-main-text">
+                  <div className="car-descr">{selectedCar.descr}</div>
+                  <div className="car-spec">
+                    <div className="car-spec-item">
+                      <p>Объем кузова</p>
+                      <p>{selectedCar.volume}</p>
+                    </div>
+                    <div className="car-spec-item">
+                      <p>Паллеты</p>
+                      <p>{selectedCar.pallets}</p>
+                    </div>
+                    <div className="car-spec-item">
+                      <p>Габариты кузова (д. × шир. × выс.)</p>
+                      <p>{selectedCar.size}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="cars-rigth">
+                {cars.map((car) => (
+                  <button
+                    key={car.id}
+                    type="button"
+                    className={`cars-item${car.id === selectedId ? ' cars-item--active' : ''}`}
+                    style={{ backgroundImage: `url(${car.bg})` }}
+                    onClick={() => setSelectedId(car.id)}
+                  >
+                    <div className="cars-weight">{car.weight}</div>
+                    <div className="cars-name">{car.name}</div>
+                    <div className="cars-price">{car.price}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Слайдер — скрыт при ширине >600px через CSS */}
+            <div className="cars-view cars-view--slider">
               <SliderBase items={cars}>
                 {({ step, sliderRef, trackRef, offset, swipeHandlers }) => {
                   const currentCar = cars[step] ?? cars[0]
@@ -129,7 +162,6 @@ function CarsSection() {
                           <span>{currentCar.title1}</span>
                           <span>{currentCar.title2}</span>
                         </div>
-
                         <div className="cars-main">
                           <img src={currentCar.image} alt={currentCar.name} />
                         </div>
@@ -151,7 +183,6 @@ function CarsSection() {
                           </div>
                         </div>
                       </div>
-
                       <div className="cars-rigth">
                         <div className="cars-slider" ref={sliderRef}>
                           <div
@@ -178,60 +209,7 @@ function CarsSection() {
                   )
                 }}
               </SliderBase>
-            ) : (
-              <>
-                <div className="cars-left">
-                  {(() => {
-                    const selectedCar = cars.find((c) => c.id === selectedId) ?? cars[0]
-                    return (
-                      <>
-                        <div className="cars-title">
-                          <span>{selectedCar.title1}</span>
-                          <span>{selectedCar.title2}</span>
-                        </div>
-
-                        <div className="cars-main">
-                          <img src={selectedCar.image} alt={selectedCar.name} />
-                        </div>
-                        <div className="cars-main-text">
-                          <div className="car-descr">{selectedCar.descr}</div>
-                          <div className="car-spec">
-                            <div className="car-spec-item">
-                              <p>Объем кузова</p>
-                              <p>{selectedCar.volume}</p>
-                            </div>
-                            <div className="car-spec-item">
-                              <p>Паллеты</p>
-                              <p>{selectedCar.pallets}</p>
-                            </div>
-                            <div className="car-spec-item">
-                              <p>Габариты кузова (д. × шир. × выс.)</p>
-                              <p>{selectedCar.size}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </>
-                    )
-                  })()}
-                </div>
-
-                <div className="cars-rigth">
-                  {cars.map((car) => (
-                    <button
-                      key={car.id}
-                      type="button"
-                      className={`cars-item${car.id === selectedId ? ' cars-item--active' : ''}`}
-                      style={{ backgroundImage: `url(${car.bg})` }}
-                      onClick={() => setSelectedId(car.id)}
-                    >
-                      <div className="cars-weight">{car.weight}</div>
-                      <div className="cars-name">{car.name}</div>
-                      <div className="cars-price">{car.price}</div>
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+            </div>
           </div>
         </div>
       </div>

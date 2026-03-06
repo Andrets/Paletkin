@@ -7,12 +7,13 @@ import wh from '../assets/image/services/wh.png'
 import logi from '../assets/image/services/logi.png'
 import fl from '../assets/image/services/fl.png'
 
-function ServiceSection ({ title = "Все наши услуги", subtitle = "" }) {
+function ServiceSection ({ title = "Все наши услуги", subtitle = "", show_top=false}) {
     return (
         <div className="service-all">
             <h2>{title}</h2>
             <p>{subtitle}</p>
             <div className="service-all-body">
+                {show_top && (
                 <div className="service-body-top">
                 <button className='active'>
                     Все услуги
@@ -30,6 +31,7 @@ function ServiceSection ({ title = "Все наши услуги", subtitle = ""
                     Транспортные услуги
                 </button>
                 </div>
+                )}
                 <div className="service-body">
                 <div className="service-body-item">
                     <img src={wh} alt="Fl" />

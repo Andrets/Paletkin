@@ -30,7 +30,7 @@ function Services() {
             <img src={companys} alt="Партнеры" />
           </div>
 
-          <ServiceSection />
+          <ServiceSection show_top="true" />
 
           <CalculatorComponent />
           <FaqSection

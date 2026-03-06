@@ -1,24 +1,36 @@
 .home-banner {
-  background: 
+  background:
     url('../assets/image/main-banner/logo.png') no-repeat right center,
     linear-gradient(78deg, #e46314 26%, #ffa729 96%);
+  background-size: auto 100%, 100% 100%;
   display: flex;
+  width: 100%;
   justify-content: center;
+  align-items: center;
+  gap: 24px;
+  min-height: 280px;
+  box-sizing: border-box;
 }
 
 .home-banner img {
-  max-width: 100%;
+  min-width: 0; 
   height: auto;
-}
+  object-fit: contain;
+  flex: 1;
+} 
 .home-offer {
   padding-top: 48px;
   padding-bottom: 144px;
 }
 .home-offer-content {
   display: flex; 
+  flex-wrap: wrap;
+  column-gap: 108px;
+  row-gap: 48px;
 }
 .home-offer-text {
-  flex: 1;
+  max-width: 644px;
+  flex-shrink: 1;
 }
 .home-offer-text p {
   font-family: var(--font-inter-tight);
@@ -46,8 +58,9 @@
 }
 .home-offer-blocks {
   display: grid;
-  grid-template-columns: repeat(2, 511px);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  flex: 1;
 }
 .home-blocks-item {
   padding: 12px;
@@ -90,26 +103,38 @@
 
 /* ========== Адаптив Home ========== */
 @media (max-width: 1280px) {
+  .home-banner {
+    min-height: 240px;
+  }
+
+  .home-offer-text {
+    flex: 1;
+    max-width: 100%;
+  }
+
   .home-offer-text h2 {
     font-size: 56px;
   }
   .home-offer-blocks {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
   }
 }
 
 @media (max-width: 1024px) {
+  .home-banner {
+
+  }
+  .home-banner img {
+    
+  }
   .home-offer {
-    padding-top: 32px;
-    padding-bottom: 80px;
+
   }
   .home-offer-content {
     flex-direction: column;
     gap: 32px;
   }
-  .home-offer-text h2 {
-    font-size: 48px;
-  }
+  
   .home-offer-text h2 img {
     max-width: 120px;
     height: auto;
@@ -123,8 +148,9 @@
     gap: 16px;
   }
   .home-blocks-image {
-    width: 80px;
-    height: 80px;
+    width: 76px;
+    height: 76px;
+    padding: 7px;
   }
   .home-blocks-image img {
     max-width: 100%;
@@ -132,9 +158,6 @@
   }
   .home-blocks-text {
     font-size: 18px;
-  }
-  .home-banner img {
-    max-width: 50%;
   }
   .home-blog,
   .home-tariff {
@@ -165,14 +188,8 @@
   .home-blocks-text {
     font-size: 16px;
   }
-  .home-banner {
-    flex-wrap: wrap;
-    padding: 24px 0;
-  }
-  .home-banner img {
-    max-width: 100%;
-  }
-  .home-calculator,
+
+  /* .home-calculator,
   .home-services,
   .home-tariff,
   .home-video,
@@ -188,7 +205,7 @@
   }
   .home-blog {
     padding: 64px 0;
-  }
+  } */
 }
 
 @media (max-width: 480px) {
@@ -214,9 +231,7 @@
   .home-blocks-text {
     font-size: 14px;
   }
-  .home-banner img {
-    max-width: 100%;
-  }
+  
   .home-calculator,
   .home-services,
   .home-tariff,
@@ -231,4 +246,8 @@
     padding-top: 32px;
     padding-bottom: 32px;
   }
+}
+
+@media (max-width: 320px) {
+
 }

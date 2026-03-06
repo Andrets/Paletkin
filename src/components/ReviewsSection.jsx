@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './ReviewsSection.css'
 import sdek from '../assets/image/partners/review/sdek.svg'
 import lamoda from '../assets/image/partners/review/lamoda.svg'
 import ozon from '../assets/image/partners/review/ozon.svg'
@@ -42,7 +43,6 @@ const reviewsData = [
 function ReviewsSection() {
   return (
     <section className="reviews">
-      <div className="container">
         <div className="reviews-content">
           <SliderBase items={reviewsData}>
             {({ step, maxStep, goTo, sliderRef, trackRef, offset, swipeHandlers }) => (
@@ -109,7 +109,6 @@ function ReviewsSection() {
               </>
             )}
           </SliderBase>
-        </div>
       </div>
     </section>
   )
