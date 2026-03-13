@@ -1,190 +1,194 @@
 /* Корневой блок: паддинги/фон по умолчанию. Переопределяйте через wrapperClassName (например service-section--home) и sectionStyle в пропсах */
 .service-all {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 .service-all h2 {
-  font-family: var(--font-tilda);
-  font-size: 56px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -1.12px;
-  text-align: left;
-  color: #050200;
-  margin-bottom: 12px;
+    font-family: var(--font-tilda);
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -1.12px;
+    text-align: left;
+    color: #050200;
+    margin-bottom: 12px;
 }
 
 .service-all p {
-  font-family: var(--font-inter-tight);
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: -0.36px;
-  text-align: left;
-  color: #353332;
-  max-width: 800px;
-  margin-bottom: 48px;
+    font-family: var(--font-inter-tight);
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -0.36px;
+    text-align: left;
+    color: #353332;
+    max-width: 800px;
+    margin-bottom: 48px;
 }
 .service-all-body {
-  border-radius: 8px;
+    border-radius: 8px;
 }
 .service-body-top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
 }
 .service-body-top button {
-  padding: 8px 16px;
-  border-radius: 1000px;
-  -webkit-backdrop-filter: blur(32px);
-  backdrop-filter: blur(32px);
-  background-color: rgba(248, 127, 7, 0.1);
-  border: none;
+    padding: 8px 16px;
+    border-radius: 1000px;
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    background-color: rgba(248, 127, 7, 0.1);
+    border: none;
 
-  font-family: var(--font-inter-tight);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.32px;
-  text-align: left;
-  color: #eb7300;
+    font-family: var(--font-inter-tight);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    text-align: left;
+    color: #eb7300;
 }
 
 .service-body-top .active {
-  background: #f87f07;
-  color: #fff;
+    background: #f87f07;
+    color: #fff;
 }
 
 .service-body {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 266px;
-  gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 266px;
+    gap: 16px;
 }
 .service-body-item {
-  padding: 48px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  border-radius: 8px;
-  background-color: #ededed;
-  min-width: 0;
-  height: 100%;
-  min-height: 0;
-  box-sizing: border-box;
+    padding: 48px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: #ededed;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
 }
 .service-body-item img {
-  height: 48px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  margin-bottom: 24px;
-  flex-shrink: 0;
+    height: 48px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 24px;
+    flex-shrink: 0;
 }
 .service-item-text {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 0;
-  max-width: 100%;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    max-width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
 }
+
+.service-item-text h3 {
+    font-family: var(--font-tilda);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 100%;
+    /* identical to box height, or 32px */
+    letter-spacing: -0.02em;
+
+    color: #050200;
+}
+
 .service-item-text p {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 .service-item-text h3,
 .service-item-text p {
-  margin: 0;
+    margin: 0;
 }
 .service-body-item button {
-  padding: 12px 24px;
-  border-radius: 8px;
-  background-color: #f87f07;
-  border: none;
-  color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #f87f07;
+    border: none;
+    color: #fff;
 }
 
 @media (max-width: 1220px) {
-  .service-body {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 266px;
-  }
+    .service-body {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 266px;
+    }
 }
 
 /* 960px и уже: две колонки сохраняем, ужимаем блоки */
 @media (max-width: 960px) {
-  .service-all {
-    padding: 80px 0;
-  }
-  .service-all-body {
-    padding: 32px 24px;
-  }
-  .service-body {
-    gap: 12px;
-  }
-  .service-body-item {
-    padding: 32px 24px;
-    gap: 20px;
-  }
-  .service-body-item img {
-    height: 44px;
-  }
+    .service-all {
+        padding: 80px 0;
+    }
+    .service-body {
+        gap: 12px;
+    }
+    .service-body-item {
+        padding: 32px 24px;
+        gap: 20px;
+    }
+    .service-body-item img {
+        height: 44px;
+    }
 }
 
 @media (max-width: 768px) {
-  .service-all {
-    padding: 56px 0;
-  }
-  .service-all-body {
-    padding: 24px 16px;
-  }
-  .service-body-top {
-    flex-direction: column;
-    align-items: stretch;
-    margin-bottom: 24px;
-  }
-  .service-body-top button {
-    width: 100%;
-    text-align: center;
-  }
-  .service-body {
-    gap: 10px;
-  }
-  .service-body-item {
-    padding: 24px 20px;
-    gap: 16px;
-  }
-  .service-body-item img {
-    height: 40px;
-  }
+    .service-all {
+        padding: 56px 0;
+    }
+    .service-body-top {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 24px;
+    }
+    .service-body-top button {
+        width: 100%;
+        text-align: center;
+    }
+    .service-body {
+        gap: 10px;
+    }
+    .service-body-item {
+        padding: 24px 20px;
+        gap: 16px;
+    }
+    .service-body-item img {
+        height: 40px;
+    }
 }
 
 /* 480px и уже: одна колонка, карточки на всю ширину */
 @media (max-width: 480px) {
-  .service-all {
-    padding: 40px 0;
-  }
-  .service-all-body {
-    padding: 20px 16px;
-  }
-  .service-body-top {
-    margin-bottom: 20px;
-  }
-  .service-body {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 266px;
-    gap: 12px;
-  }
-  .service-body-item {
-    padding: 20px 16px;
-    gap: 16px;
-  }
-  .service-body-item img {
-    height: 36px;
-  }
+    .service-all {
+        padding: 40px 0;
+    }
+    .service-body-top {
+        margin-bottom: 20px;
+    }
+    .service-body {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 266px;
+        gap: 12px;
+    }
+    .service-body-item {
+        padding: 20px 16px;
+        gap: 16px;
+    }
+    .service-body-item img {
+        height: 36px;
+    }
 }

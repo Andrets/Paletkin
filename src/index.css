@@ -2,225 +2,242 @@
    ИМПОРТ ШРИФТОВ ИЗ GOOGLE FONTS
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* ============================================
    TILDA SANS - локальный шрифт
    ============================================ */
 
 @font-face {
-  font-family: 'Tilda Sans';
-  src: url('./assets/fonts/TildaSans/TildaSans-Regular.woff2') format('woff2'),
-       url('./assets/fonts/TildaSans/TildaSans-Regular.woff') format('woff'),
-       url('./assets/fonts/TildaSans/TildaSans-Regular.eot') format('embedded-opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Tilda Sans";
+    src:
+        url("./assets/fonts/TildaSans/TildaSans-Regular.woff2") format("woff2"),
+        url("./assets/fonts/TildaSans/TildaSans-Regular.woff") format("woff"),
+        url("./assets/fonts/TildaSans/TildaSans-Regular.eot")
+            format("embedded-opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Tilda Sans';
-  src: url('./assets/fonts/TildaSans/TildaSans-Medium.woff2') format('woff2'),
-       url('./assets/fonts/TildaSans/TildaSans-Medium.woff') format('woff'),
-       url('./assets/fonts/TildaSans/TildaSans-Medium.eot') format('embedded-opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Tilda Sans";
+    src:
+        url("./assets/fonts/TildaSans/TildaSans-Medium.woff2") format("woff2"),
+        url("./assets/fonts/TildaSans/TildaSans-Medium.woff") format("woff"),
+        url("./assets/fonts/TildaSans/TildaSans-Medium.eot")
+            format("embedded-opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Tilda Sans';
-  src: url('./assets/fonts/TildaSans/TildaSans-Semibold.woff2') format('woff2'),
-       url('./assets/fonts/TildaSans/TildaSans-Semibold.woff') format('woff'),
-       url('./assets/fonts/TildaSans/TildaSans-Semibold.eot') format('embedded-opentype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Tilda Sans";
+    src:
+        url("./assets/fonts/TildaSans/TildaSans-Semibold.woff2") format("woff2"),
+        url("./assets/fonts/TildaSans/TildaSans-Semibold.woff") format("woff"),
+        url("./assets/fonts/TildaSans/TildaSans-Semibold.eot")
+            format("embedded-opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Tilda Sans';
-  src: url('./assets/fonts/TildaSans/TildaSans-Bold.woff2') format('woff2'),
-       url('./assets/fonts/TildaSans/TildaSans-Bold.woff') format('woff'),
-       url('./assets/fonts/TildaSans/TildaSans-Bold.eot') format('embedded-opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Tilda Sans";
+    src:
+        url("./assets/fonts/TildaSans/TildaSans-Bold.woff2") format("woff2"),
+        url("./assets/fonts/TildaSans/TildaSans-Bold.woff") format("woff"),
+        url("./assets/fonts/TildaSans/TildaSans-Bold.eot")
+            format("embedded-opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Tilda Sans';
-  src: url('./assets/fonts/TildaSans/TildaSans-Black.woff2') format('woff2'),
-       url('./assets/fonts/TildaSans/TildaSans-Black.woff') format('woff'),
-       url('./assets/fonts/TildaSans/TildaSans-Black.eot') format('embedded-opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Tilda Sans";
+    src:
+        url("./assets/fonts/TildaSans/TildaSans-Black.woff2") format("woff2"),
+        url("./assets/fonts/TildaSans/TildaSans-Black.woff") format("woff"),
+        url("./assets/fonts/TildaSans/TildaSans-Black.eot")
+            format("embedded-opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
-  --text-color: #333;
-  --light-bg: #f5f5f5;
-  --border-color: #e0e0e0;
-  --success: #4caf50;
-  --error: #f44336;
-  --warning: #ff9800;
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --text-color: #333;
+    --light-bg: #f5f5f5;
+    --border-color: #e0e0e0;
+    --success: #4caf50;
+    --error: #f44336;
+    --warning: #ff9800;
 
-  /* ============================================
+    /* ============================================
      ШРИФТЫ - CSS ПЕРЕМЕННЫЕ
      ============================================ */
-  --font-tilda: 'Tilda Sans', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-inter: 'Inter', sans-serif;
-  --font-inter-tight: 'Inter', sans-serif;
+    --font-tilda: "Tilda Sans", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --font-inter-tight: "Inter Tight", sans-serif;
 
-  /* Основные комбинации */
-  --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-heading: 'Tilda Sans', 'Roboto', sans-serif;
+    /* Основные комбинации */
+    --font-body:
+        "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    --font-heading: "Tilda Sans", "Roboto", sans-serif;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--text-color);
-  font-weight: 400;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
+    font-weight: 400;
 }
 
 /* Стили для заголовков */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-heading);
-  font-weight: 600;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 /* Изображения не выходят за ширину контейнера */
 .main-content img,
 .footer img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 .main-content img[width][height] {
-  object-fit: unset;
+    object-fit: unset;
 }
 
 button {
-  font-family: inherit;
+    font-family: inherit;
 }
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--border-color);
+    background: var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--warning);
-  border-radius: 5px;
+    background: var(--warning);
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-color);
+    background: var(--secondary-color);
 }
 
 /* Utility Classes */
 .container {
-  max-width: 1792px;
-  margin: 0 auto;
+    max-width: 1792px;
+    margin: 0 auto;
 }
 
 @media (max-width: 1919px) {
-  .container {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
+    .container {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+    .container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 }
 
 @media (max-width: 360px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
 }
 
 @media (max-width: 480px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
 
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-  }
-
-  .card {
-    padding: 20px;
-  }
+    .card {
+        padding: 20px;
+    }
 }

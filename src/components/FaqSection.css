@@ -1,0 +1,108 @@
+.faq-section {
+    padding: 0 !important;
+}
+
+.faq-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.faq-answers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    > a {
+        background-color: #f87f07;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+}
+
+.faq-answers h2 {
+    font-family: var(--font-tilda);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 100%;
+    /* identical to box height, or 56px */
+    letter-spacing: -0.02em;
+
+    color: #050200;
+}
+
+.faq-answers p {
+    font-family: var(--font-inter-tight);
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    /* identical to box height, or 27px */
+    letter-spacing: -0.02em;
+
+    color: #353332;
+}
+
+.faq-content {
+    margin: 0 !important;
+}
+
+.faq-answer-inner {
+    font-family: var(--font-inter-tight);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    /* or 27px */
+    letter-spacing: -0.02em;
+
+    color: #353332;
+}
+
+.faq-contacts-desktop,
+.faq-contacts-mobile {
+    padding: 32px;
+    background: #f5f5f5 url("/src/assets/image/cta-vector/vector.png") no-repeat
+        right bottom;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.faq-contacts-mobile {
+    display: none;
+}
+
+.faq-title {
+    font-family: var(--font-tilda);
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 32px !important;
+    line-height: 100%;
+    /* identical to box height, or 32px */
+    letter-spacing: -0.02em;
+
+    color: #050200;
+}
+
+@media (max-width: 1024px) {
+    .faq-grid {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .faq-contacts-desktop {
+        display: none;
+    }
+
+    .faq-contacts-mobile {
+        display: block;
+        width: 100%;
+        > p {
+            padding: 12px 0 32px 0;
+        }
+    }
+}

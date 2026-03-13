@@ -1,95 +1,95 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './CarsSection.css'
-import venicle from '../assets/image/cars/vehicle-image-container.png'
-import item_car1 from '../assets/image/cars/item-car.png'
-import item_car2 from '../assets/image/cars/item-car2.png'
-import item_car3 from '../assets/image/cars/item-car3.png'
-import item_car4 from '../assets/image/cars/item-car4.png'
-import item_car5 from '../assets/image/cars/item-car5.png'
-import SliderBase from './SliderBase'
+import "./CarsSection.css";
+import venicle from "../assets/image/cars/vehicle-image-container.png";
+import item_car1 from "../assets/image/cars/item-car.png";
+import item_car2 from "../assets/image/cars/item-car2.png";
+import item_car3 from "../assets/image/cars/item-car3.png";
+import item_car4 from "../assets/image/cars/item-car4.png";
+import item_car5 from "../assets/image/cars/item-car5.png";
+import SliderBase from "./SliderBase";
 
 const cars = [
   {
     id: 0,
-    title1: 'Газель 3м',
-    title2: 'Для маркетплейсов самое то!',
+    title1: "Газель 3м",
+    title2: "Для маркетплейсов самое то!",
     image: venicle,
     bg: item_car1,
-    weight: '1,5т',
-    name: 'Газель 3 м',
-    price: 'от 2500₽',
+    weight: "1,5т",
+    name: "Газель 3 м",
+    price: "от 2500₽",
     descr:
-      'Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.',
-    volume: 'до 3 м3',
-    pallets: '6-8 европаллет',
-    size: 'до 1,5 × 1,3 × 1 м'
+      "Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.",
+    volume: "до 3 м3",
+    pallets: "6-8 европаллет",
+    size: "до 1,5 × 1,3 × 1 м",
   },
   {
     id: 1,
-    title1: 'Газель 3м',
-    title2: 'Для маркетплейсов самое то!',
+    title1: "Газель 3м",
+    title2: "Для маркетплейсов самое то!",
     image: venicle,
     bg: item_car2,
-    weight: '1,5т',
-    name: 'Газель 3 м',
-    price: 'от 2500₽',
+    weight: "1,5т",
+    name: "Газель 3 м",
+    price: "от 2500₽",
     descr:
-      'Собственный автопарк транспортной компании «Марсyuasdhвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.',
-    volume: 'до 3 м3',
-    pallets: '6-8 европаллет',
-    size: 'до 1,5 × 1,3 × 1 м'
+      "Собственный автопарк транспортной компании «Марсyuasdhвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.",
+    volume: "до 3 м3",
+    pallets: "6-8 европаллет",
+    size: "до 1,5 × 1,3 × 1 м",
   },
   {
     id: 2,
-    title1: 'Газель 3м',
-    title2: 'Для маркетплейсов самое то!',
+    title1: "Газель 3м",
+    title2: "Для маркетплейсов самое то!",
     image: venicle,
     bg: item_car3,
-    weight: '1,5т',
-    name: 'Газель 3 м',
-    price: 'от 2500₽',
+    weight: "1,5т",
+    name: "Газель 3 м",
+    price: "от 2500₽",
     descr:
-      'Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.',
-    volume: 'до 3 м3',
-    pallets: '6-8 европаллет',
-    size: 'до 1,5 × 1,3 × 1 м'
+      "Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.",
+    volume: "до 3 м3",
+    pallets: "6-8 европаллет",
+    size: "до 1,5 × 1,3 × 1 м",
   },
   {
     id: 3,
-    title1: 'Газель 3м',
-    title2: 'Для маркетплейсов самое то!',
+    title1: "Газель 3м",
+    title2: "Для маркетплейсов самое то!",
     image: venicle,
     bg: item_car4,
-    weight: '1,5т',
-    name: 'Газель 3 м',
-    price: 'от 2500₽',
+    weight: "1,5т",
+    name: "Газель 3 м",
+    price: "от 2500₽",
     descr:
-      'Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.',
-    volume: 'до 3 м3',
-    pallets: '6-8 европаллет',
-    size: 'до 1,5 × 1,3 × 1 м'
+      "Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.",
+    volume: "до 3 м3",
+    pallets: "6-8 европаллет",
+    size: "до 1,5 × 1,3 × 1 м",
   },
   {
     id: 4,
-    title1: 'Газель 3м',
-    title2: 'Для маркетплейсов самое то!',
+    title1: "Газель 3м",
+    title2: "Для маркетплейсов самое то!",
     image: venicle,
     bg: item_car5,
-    weight: '1,5т',
-    name: 'Газель 3 м',
-    price: 'от 2500₽',
+    weight: "1,5т",
+    name: "Газель 3 м",
+    price: "от 2500₽",
     descr:
-      'Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.',
-    volume: 'до 3 м3',
-    pallets: '6-8 европаллет',
-    size: 'до 1,5 × 1,3 × 1 м'
-  }
-]
+      "Собственный автопарк транспортной компании «МарсТрансАвто» насчитывает 87 единиц современной техники, которой управляют наши опытные водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех характеристик вашего груза и маршрута.",
+    volume: "до 3 м3",
+    pallets: "6-8 европаллет",
+    size: "до 1,5 × 1,3 × 1 м",
+  },
+];
 
 function CarsSection() {
-  const [selectedId, setSelectedId] = useState(0)
-  const selectedCar = cars.find((c) => c.id === selectedId) ?? cars[0]
+  const [selectedId, setSelectedId] = useState(0);
+  const selectedCar = cars.find((c) => c.id === selectedId) ?? cars[0];
 
   return (
     <section className="cars">
@@ -98,10 +98,11 @@ function CarsSection() {
           <div className="cars-text">
             <h2>Наш автопарк</h2>
             <p>
-              Собственный автопарк транспортной компании &laquo;МарсТрансАвто&raquo;
-              насчитывает 87 единиц современной техники, которой управляют наши опытные
-              водители. Мы предложим вам наиболее подходящий автомобиль с учётом всех
-              характеристик вашего груза и маршрута.
+              Собственный автопарк транспортной компании
+              &laquo;МарсТрансАвто&raquo; насчитывает 87 единиц современной
+              техники, которой управляют наши опытные водители. Мы предложим вам
+              наиболее подходящий автомобиль с учётом всех характеристик вашего
+              груза и маршрута.
             </p>
           </div>
           <div className="cars-body">
@@ -138,7 +139,7 @@ function CarsSection() {
                   <button
                     key={car.id}
                     type="button"
-                    className={`cars-item${car.id === selectedId ? ' cars-item--active' : ''}`}
+                    className={`cars-item${car.id === selectedId ? " cars-item--active" : ""}`}
                     style={{ backgroundImage: `url(${car.bg})` }}
                     onClick={() => setSelectedId(car.id)}
                   >
@@ -154,7 +155,7 @@ function CarsSection() {
             <div className="cars-view cars-view--slider">
               <SliderBase items={cars}>
                 {({ step, sliderRef, trackRef, offset, swipeHandlers }) => {
-                  const currentCar = cars[step] ?? cars[0]
+                  const currentCar = cars[step] ?? cars[0];
                   return (
                     <>
                       <div className="cars-left">
@@ -206,7 +207,7 @@ function CarsSection() {
                         </div>
                       </div>
                     </>
-                  )
+                  );
                 }}
               </SliderBase>
             </div>
@@ -214,8 +215,7 @@ function CarsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default CarsSection
-
+export default CarsSection;

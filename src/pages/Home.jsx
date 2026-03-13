@@ -1,36 +1,34 @@
-import React from 'react'
-import './Home.css'
+import React from "react";
+import "./Home.css";
 
-import logo3d from '../assets/image/main-banner/logo3d.png'
-import boxes from '../assets/image/main-banner/boxes.png'
+import logo3d from "../assets/image/main-banner/logo3d.png";
+import boxes from "../assets/image/main-banner/boxes.png";
 
-import CalculatorComponent from '../components/Calculator'
-import ServiceSection from '../components/ServicesComponent'
-import PartnersSection from '../components/PartnersSection'
-import DifferentSection from '../components/DifferentSection'
-import CarsSection from '../components/CarsSection'
-import StepsSection from '../components/StepsSection'
-import ReviewsSection from '../components/ReviewsSection'
-import WhyUsSection from '../components/WhyUs'
-import FaqSection from '../components/FaqSection'
-import OfferSection from '../components/OfferSection'
-import DeliverySection from '../components/DeliverySection'
-import TariffSection from '../components/TariffsSection';
-import BlogSection from '../components/BlogSection';
-import VideoSection from '../components/VideoSection';
+import CalculatorComponent from "../components/Calculator";
+import ServiceSection from "../components/ServicesComponent";
+import PartnersSection from "../components/PartnersSection";
+import DifferentSection from "../components/DifferentSection";
+import CarsSection from "../components/CarsSection";
+import StepsSection from "../components/StepsSection";
+import ReviewsSection from "../components/ReviewsSection";
+import WhyUsSection from "../components/WhyUs";
+import FaqSection from "../components/FaqSection";
+import OfferSection from "../components/OfferSection";
+import DeliverySection from "../components/DeliverySection";
+import TariffSection from "../components/TariffsSection";
+import BlogSection from "../components/BlogSection";
+import VideoSection from "../components/VideoSection";
 
-import companys from '../assets/image/partners/companys.svg'
+import companys from "../assets/image/partners/companys.svg";
 
-import globe from '../assets/image/offer/globe.png'
-import quolty from '../assets/image/offer/quolty.png'
-import dlvry from '../assets/image/offer/dlvry.png'
-import marketplace from '../assets/image/offer/marketplace.png'
-
+import globe from "../assets/image/offer/globe.png";
+import quolty from "../assets/image/offer/quolty.png";
+import dlvry from "../assets/image/offer/dlvry.png";
+import marketplace from "../assets/image/offer/marketplace.png";
 
 function Home() {
   return (
     <section className="home">
-
       <div className="home-pupi">
         <div className="home-top">
           <div className="container">
@@ -38,18 +36,26 @@ function Home() {
               <div className="home-banner__boxes-wrap">
                 <img src={boxes} alt="Коробки" className="home-banner__boxes" />
               </div>
-              <img src={logo3d} alt="Paletkin" className="home-banner__logo" />
             </div>
+            <img src={logo3d} alt="Paletkin" className="home-banner__logo" />
           </div>
         </div>
-      
+
         <div className="home-offer">
           <div className="container">
             <div className="home-offer-content">
               <div className="home-offer-text">
-                <p>Надежная и быстрая доставка на Wildberries, Ozon, Яндекс.Маркет <br />и другие маркетплейсы.</p>
-                <h2>Доставка на маркетплейсы <span> <br /> по всей России</span> 
-                <img src={companys} alt="Партнеры" />
+                <p>
+                  Надежная и быстрая доставка на Wildberries, Ozon,
+                  Яндекс.Маркет <br />и другие маркетплейсы.
+                </p>
+                <h2>
+                  Доставка на маркетплейсы{" "}
+                  <span>
+                    {" "}
+                    <br /> по всей России
+                  </span>
+                  <img src={companys} alt="Партнеры" />
                 </h2>
               </div>
               <div className="home-offer-blocks">
@@ -57,33 +63,25 @@ function Home() {
                   <div className="home-blocks-image">
                     <img src={dlvry} alt="Delivery" />
                   </div>
-                  <div className="home-blocks-text">
-                    Надежная доставка
-                  </div>
+                  <div className="home-blocks-text">Надежная доставка</div>
                 </div>
                 <div className="home-blocks-item">
                   <div className="home-blocks-image">
                     <img src={marketplace} alt="Marketplace" />
                   </div>
-                  <div className="home-blocks-text">
-                    Маркетплейсы
-                  </div>
+                  <div className="home-blocks-text">Маркетплейсы</div>
                 </div>
                 <div className="home-blocks-item">
                   <div className="home-blocks-image">
                     <img src={quolty} alt="Quality" />
                   </div>
-                  <div className="home-blocks-text">
-                    Гарантия качества
-                  </div>
+                  <div className="home-blocks-text">Гарантия качества</div>
                 </div>
                 <div className="home-blocks-item">
                   <div className="home-blocks-image">
                     <img src={globe} alt="Globe" />
                   </div>
-                  <div className="home-blocks-text">
-                    Широкая география
-                  </div>
+                  <div className="home-blocks-text">Широкая география</div>
                 </div>
               </div>
             </div>
@@ -96,7 +94,10 @@ function Home() {
         </div>
       </div>
 
-      <DeliverySection title="Доставка в популярные маркетплейсы" subtitle="Предоставляем профессиональные решения для доставки товаров на ведущие торговые площадки России с соблюдением всех требований маркетплейсов." />
+      <DeliverySection
+        title="Доставка в популярные маркетплейсы"
+        subtitle="Предоставляем профессиональные решения для доставки товаров на ведущие торговые площадки России с соблюдением всех требований маркетплейсов."
+      />
 
       <div className="home-services">
         <div className="container">
@@ -107,13 +108,13 @@ function Home() {
           />
         </div>
       </div>
-      
+
       <PartnersSection />
 
       <div className="home-different">
         <DifferentSection />
       </div>
-      
+
       <CarsSection />
 
       <div className="home-tariff">
@@ -134,7 +135,6 @@ function Home() {
         </div>
       </div>
 
-
       <StepsSection />
 
       <ReviewsSection showFaqCard />
@@ -145,21 +145,19 @@ function Home() {
         </div>
       </div>
 
-
       <div className="home-faq">
         <div className="container">
           <FaqSection
             title="Ответы на вопросы"
-            subtitle="Если вы все еще имеете вопросы о документах и сервисах"
+            subtitle="Всё, что нужно знать о доставке с Paletkin, в одном месте"
             linkTo="/faq"
             linkText="Перейти в раздел FAQ"
           />
+        </div>
       </div>
-
       <OfferSection />
-      </div>
     </section>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -1,4 +1,4 @@
-function OfferSection({ title = 'Начните доставку прямо сейчас' }) {
+function OfferSection({ title = "Готовы отправить груз?" }) {
   return (
     <section className="offer">
       <h3>{title}</h3>
@@ -18,8 +18,7 @@ function OfferSection({ title = 'Начните доставку прямо се
         Нажимая кнопку, вы согласаетесь с нашей политикой конфиденциальности
       </span>
     </section>
-  )
+  );
 }
 
-export default OfferSection
-
+export default OfferSection;

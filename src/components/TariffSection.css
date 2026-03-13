@@ -1,385 +1,386 @@
-
 .tariff-section {
-  width: 100%;
-  padding: 48px;
-  background: #f5f5f5;
-  border-radius: 8px;
+    width: 100%;
+    padding: 48px;
+    background: #f5f5f5;
+    border-radius: 8px;
 }
-
 
 /* ========== Header: заголовок слева, маркетплейсы справа ========== */
 
 .tariff-section-header {
-  display: flex;
-  background: #ededed;
-  gap: 137px;
-  padding: 32px;
-  margin-bottom: 32px;
+    display: flex;
+    background: #ededed;
+    gap: 137px;
+    padding: 32px;
+    margin-bottom: 32px;
 }
 
 .tariff-section-header-left {
-  flex: 0 1 auto;
-  min-width: 0;
+    flex: 0 1 auto;
+    min-width: 0;
 }
 
 .tariff-section-title {
-  font-family: var(--font-tilda);
-  font-size: 56px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -1.12px;
-  text-align: left;
-  color: #050200;
-  margin-bottom: 12px;
+    font-family: var(--font-tilda);
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -1.12px;
+    text-align: left;
+    color: #050200;
+    margin-bottom: 12px;
 }
 
 .tariff-section-subtitle {
-  font-family: var(--font-inter-tight);
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: -0.36px;
-  text-align: left;
-  color: #353332;
+    font-family: var(--font-inter-tight);
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -0.36px;
+    text-align: left;
+    color: #353332;
 }
 
 .tariff-section-marketplaces {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
 }
 .tariff-section-marketplace-tag {
-  cursor: pointer;
+    cursor: pointer;
 }
 .marketplace-tag {
-  font-family: var(--font-inter-tight);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: #eb7300;
-  border-radius: 1000px;
-  -webkit-backdrop-filter: blur(32px);
-  backdrop-filter: blur(32px);
-  background-color: rgba(248, 127, 7, 0.1);
-  border: none;
-  letter-spacing: -0.35px;
-  padding: 8px 12px;
-  transition: background 0.2s, color 0.2s;
-  white-space: nowrap;
+    font-family: var(--font-inter-tight);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #eb7300;
+    border-radius: 1000px;
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    background-color: rgba(248, 127, 7, 0.1);
+    border: none;
+    letter-spacing: -0.35px;
+    padding: 8px 12px;
+    transition:
+        background 0.2s,
+        color 0.2s;
+    white-space: nowrap;
 }
 
 .tariff-section-marketplace-tag:hover {
-  background: #ddd;
+    background: #ddd;
 }
 
 .tariff-section-marketplace-tag--active {
-  background: #f87f07;
-  color: #fff;
+    background: #f87f07;
+    color: #fff;
 }
 
 .tariff-section-marketplace-tag--active:hover {
-  background: #e68a2e;
-  color: #fff;
+    background: #e68a2e;
+    color: #fff;
 }
 
 /* ========== Данные: две колонки — склады | тарифы ========== */
 
 .tariff-section-data {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 280px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--tariff-border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--tariff-border);
 }
 
 .tariff-section-warehouses {
-  background: var(--tariff-bg-block);
-  padding: 28px 32px;
-  border-right: 1px solid var(--tariff-border);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    background: var(--tariff-bg-block);
+    padding: 28px 32px;
+    border-right: 1px solid var(--tariff-border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .tariff-section-warehouse-block {
-  padding: 24px;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+    padding: 24px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        border-color 0.2s;
 }
 
 .tariff-section-warehouse-block:hover {
-  background: rgba(5, 2, 0, 0.03);
+    background: rgba(5, 2, 0, 0.03);
 }
 
 .tariff-section-warehouse-block--active {
-  border-color: #f87f07;
-  background: rgba(5, 2, 0, 0.04);
+    border-color: #f87f07;
+    background: rgba(5, 2, 0, 0.04);
 }
 
 .tariff-section-warehouse-block--active:hover {
-  background: rgba(5, 2, 0, 0.06);
+    background: rgba(5, 2, 0, 0.06);
 }
 
 .tariff-section-block-title {
-  font-family: var(--font-tilda);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.2px;
-  color: var(--tariff-text-dark);
-  margin: 0 0 16px;
+    font-family: var(--font-tilda);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    color: var(--tariff-text-dark);
+    margin: 0 0 16px;
 }
 
 .tariff-section-warehouses-tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
 }
-
 
 /* ========== Правая колонка — тарифы (белый фон) ========== */
 
 .tariff-section-prices-block {
-  background: var(--tariff-bg-right);
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+    background: var(--tariff-bg-right);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .tariff-section-prices-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 0 32px;
-  border-bottom: 1px solid var(--tariff-separator);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 32px;
+    border-bottom: 1px solid var(--tariff-separator);
 }
 
 .tariff-section-prices-col-title {
-  font-family: var(--font-tilda);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.32px;
-  color: #898989;
+    font-family: var(--font-tilda);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: #898989;
 }
 
 .tariff-section-prices-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 32px 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0 32px 28px;
 }
 
 .tariff-section-price-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 16px;
-  padding: 33px 0;
-  border-bottom: 1px solid rgba(5, 2, 0, 0.1);;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 33px 0;
+    border-bottom: 1px solid rgba(5, 2, 0, 0.1);
 }
 
 .tariff-section-price-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .tariff-section-price-quantity {
-  font-family: var(--font-inter-tight);
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: -0.36px;
-  color: #050200;
+    font-family: var(--font-inter-tight);
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -0.36px;
+    color: #050200;
 }
 
 .tariff-section-price-pill {
-  display: inline-block;
-  text-align: left;
-  white-space: nowrap;
-  padding: 10px 0;
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+    padding: 10px 0;
 }
 
 /* Кнопка стоимости в таблице — оранжевая с белым текстом */
 .tariff-section-price-pill .marketplace-tag {
-  background: #f87f07;
-  color: #fff;
-  font-weight: 600;
+    background: #f87f07;
+    color: #fff;
+    font-weight: 600;
 }
-
 
 /* ========== Адаптив ========== */
 
+@media (max-width: 1440px) {
+    .tariff-section-header {
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 28px;
+    }
+}
+
 @media (max-width: 1024px) {
-  .tariff-section-header {
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 28px;
-  }
+    .tariff-section-marketplaces {
+        width: 100%;
+    }
 
-  .tariff-section-marketplaces {
-    width: 100%;
-  }
+    .tariff-section-data {
+        grid-template-columns: 1fr;
+    }
 
-  .tariff-section-data {
-    grid-template-columns: 1fr;
-  }
-
-  .tariff-section-warehouses {
-    border-right: none;
-    border-bottom: 1px solid var(--tariff-border);
-  }
+    .tariff-section-warehouses {
+        border-right: none;
+        border-bottom: 1px solid var(--tariff-border);
+    }
 }
 
 /* 960px — вид как на макете: одна колонка, теги переносятся, активный блок с оранжевой рамкой */
 @media (max-width: 960px) {
-  .tariff-section {
-    padding: 40px 32px;
-  }
+    .tariff-section {
+        padding: 40px 32px;
+    }
 
-  .tariff-section-header {
-    padding: 0 0 24px;
-    gap: 20px;
-    margin-bottom: 24px;
-  }
+    .tariff-section-header {
+        padding: 0 0 24px;
+        gap: 20px;
+        margin-bottom: 24px;
+    }
 
-  .tariff-section-title {
-    font-size: 44px;
-    letter-spacing: -0.88px;
-  }
+    .tariff-section-title {
+        font-size: 44px;
+        letter-spacing: -0.88px;
+    }
 
-  .tariff-section-subtitle {
-    font-size: 17px;
-  }
+    .tariff-section-subtitle {
+        font-size: 17px;
+    }
 
-  .tariff-section-marketplaces {
-    gap: 12px;
-  }
+    .tariff-section-marketplaces {
+        gap: 12px;
+    }
 
+    .tariff-section-data {
+        min-height: 0;
+        border-radius: 12px;
+    }
 
-  .tariff-section-data {
-    min-height: 0;
-    border-radius: 12px;
-  }
+    .tariff-section-warehouses {
+        padding: 24px 28px;
+        gap: 12px;
+        border-bottom: 1px solid var(--tariff-border);
+    }
 
-  .tariff-section-warehouses {
-    padding: 24px 28px;
-    gap: 12px;
-    border-bottom: 1px solid var(--tariff-border);
-  }
+    .tariff-section-warehouse-block {
+        padding: 20px;
+        border-radius: 10px;
+    }
 
-  .tariff-section-warehouse-block {
-    padding: 20px;
-    border-radius: 10px;
-  }
+    .tariff-section-block-title {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
 
-  .tariff-section-block-title {
-    font-size: 17px;
-    margin-bottom: 12px;
-  }
+    .tariff-section-warehouses-tags {
+        gap: 10px;
+    }
 
-  .tariff-section-warehouses-tags {
-    gap: 10px;
-  }
+    .tariff-section-prices-header {
+        padding: 20px 28px;
+    }
 
-  .tariff-section-prices-header {
-    padding: 20px 28px;
-  }
+    .tariff-section-prices-col-title {
+        font-size: 15px;
+    }
 
-  .tariff-section-prices-col-title {
-    font-size: 15px;
-  }
+    .tariff-section-prices-list {
+        padding: 0 28px 24px;
+    }
 
-  .tariff-section-prices-list {
-    padding: 0 28px 24px;
-  }
+    .tariff-section-price-row {
+        padding: 20px 0;
+    }
 
-  .tariff-section-price-row {
-    padding: 20px 0;
-  }
-
-  .tariff-section-price-quantity {
-    font-size: 17px;
-  }
+    .tariff-section-price-quantity {
+        font-size: 17px;
+    }
 }
 
 @media (max-width: 768px) {
-  .tariff-section {
-    padding: 24px 0;
-  }
+    .tariff-section {
+        padding: 24px 0;
+    }
 
-  .tariff-section-inner {
-    padding: 24px 20px 32px;
-    border-radius: 12px;
-  }
+    .tariff-section-inner {
+        padding: 24px 20px 32px;
+        border-radius: 12px;
+    }
 
-  .tariff-section-title {
-    font-size: 24px;
-  }
+    .tariff-section-title {
+        font-size: 24px;
+    }
 
-  .tariff-section-subtitle {
-    font-size: 14px;
-  }
+    .tariff-section-subtitle {
+        font-size: 14px;
+    }
 
-  .tariff-section-marketplace-tag {
-    font-size: 13px;
-    padding: 8px 14px;
-  }
+    .tariff-section-marketplace-tag {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
 
-  .tariff-section-warehouses,
-  .tariff-section-prices-header {
-    padding: 20px 24px;
-  }
+    .tariff-section-warehouses,
+    .tariff-section-prices-header {
+        padding: 20px 24px;
+    }
 
-  .tariff-section-warehouse-block {
-    padding: 16px;
-  }
+    .tariff-section-warehouse-block {
+        padding: 16px;
+    }
 
-  .tariff-section-prices-list {
-    padding: 0 24px 20px;
-  }
+    .tariff-section-prices-list {
+        padding: 0 24px 20px;
+    }
 
-  .tariff-section-block-title,
-  .tariff-section-prices-col-title {
-    font-size: 15px;
-  }
+    .tariff-section-block-title,
+    .tariff-section-prices-col-title {
+        font-size: 15px;
+    }
 
-  .tariff-section-warehouse-tag,
-  .tariff-section-price-quantity,
-  .tariff-section-price-pill {
-    font-size: 13px;
-  }
+    .tariff-section-warehouse-tag,
+    .tariff-section-price-quantity,
+    .tariff-section-price-pill {
+        font-size: 13px;
+    }
 
-  .tariff-section-price-row {
-    padding: 12px 0;
-  }
+    .tariff-section-price-row {
+        padding: 12px 0;
+    }
 }
 
 @media (max-width: 480px) {
-  .tariff-section {
-    padding: 16px 0;
-  }
-  .tariff-section-header {
-    padding: 20px 16px;
-    gap: 16px;
-  }
-  .tariff-section-title {
-    font-size: 20px;
-  }
-  .tariff-section-subtitle {
-    font-size: 13px;
-  }
-  .tariff-section-warehouses,
-  .tariff-section-prices-header {
-    padding: 16px;
-  }
-  .tariff-section-price-row {
-    padding: 10px 0;
-  }
+    .tariff-section {
+        padding: 16px 0;
+    }
+    .tariff-section-header {
+        padding: 20px 16px;
+        gap: 16px;
+    }
+    .tariff-section-title {
+        font-size: 20px;
+    }
+    .tariff-section-subtitle {
+        font-size: 13px;
+    }
+    .tariff-section-warehouses,
+    .tariff-section-prices-header {
+        padding: 16px;
+    }
+    .tariff-section-price-row {
+        padding: 10px 0;
+    }
 }
