@@ -50,12 +50,11 @@ function Home() {
                   Яндекс.Маркет <br />и другие маркетплейсы.
                 </p>
                 <h2>
-                  Доставка на маркетплейсы{" "}
+                  Доставка на маркетплейсы
                   <span>
-                    {" "}
-                    <br /> по всей России
+                    по всей России
+                    <img src={companys} alt="Партнеры" />
                   </span>
-                  <img src={companys} alt="Партнеры" />
                 </h2>
               </div>
               <div className="home-offer-blocks">

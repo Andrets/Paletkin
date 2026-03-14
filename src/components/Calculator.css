@@ -422,6 +422,19 @@
     }
 }
 
+@media (max-width: 480px) {
+    .form-header h2 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 100%;
+        /* or 32px */
+        letter-spacing: -0.02em;
+
+        color: #050200;
+    }
+}
+
 @media (max-width: 460px) {
     .calculator-component {
         padding: 16px 12px;

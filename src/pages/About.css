@@ -513,6 +513,12 @@
     }
 }
 
+@media (max-width: 360px) {
+    .steps-section {
+        padding: 0 !important;
+    }
+}
+
 @keyframes partner-aboutsScroll {
     0% {
         transform: translateX(0);

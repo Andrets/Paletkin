@@ -114,13 +114,49 @@
         padding: 40px 0;
     }
     .whyus-top h2 {
-        font-size: 26px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 100%;
+        /* or 32px */
+        letter-spacing: -0.02em;
+        > br {
+            display: inline;
+            content: " ";
+        }
     }
+
+    .whyus-top p {
+        padding: 0 !important;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        /* or 24px */
+        letter-spacing: -0.02em;
+    }
+
     .whyus-text {
         font-size: 14px;
     }
 
     .whyus-bottom {
+        display: flex;
         flex-direction: column;
+        > .whyus-text p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            /* or 24px */
+            letter-spacing: -0.02em;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .home-whyus {
+        padding: 0 !important;
+    }
+    .whyus {
+        padding: 0 !important;
     }
 }

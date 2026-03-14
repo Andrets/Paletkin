@@ -108,11 +108,15 @@
     color: #050200;
 }
 .home-offer-text h2 span {
+    display: flex;
+    align-items: flex-start;
     color: #eb7300;
+    height: 100%;
 }
 
-.home-offer-text h2 img {
-    margin: 3px 0px 0 11px;
+.home-offer-text h2 span img {
+    margin: 3px 0px 0px 11px;
+    max-width: 156px;
 }
 .home-offer-blocks {
     display: grid;
@@ -156,6 +160,10 @@
 }
 
 .home-tariff {
+}
+
+.tariff-section-header {
+    border-radius: 8px;
 }
 
 /* ========== Адаптив Home ========== */
@@ -285,6 +293,14 @@
         max-height: 187px;
         max-width: 52%;
     }
+
+    .home-pupi {
+        gap: 32px;
+    }
+
+    .home-offer-text h2 span img {
+        max-width: 92px !important;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -293,7 +309,7 @@
         gap: 32px;
     }
 
-    .home-offer-text h2 img {
+    .home-offer-text h2 span img {
         max-width: 120px;
         height: auto;
     }
@@ -414,13 +430,18 @@
     .home-offer-text h2 {
         font-size: 28px;
     }
-    .home-offer-text h2 img {
+    .home-offer-text h2 span img {
         display: block;
-        margin-top: 8px;
-        max-width: 160px;
     }
     .home-offer-text p {
-        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        /* or 24px */
+        letter-spacing: -0.02em;
+
+        color: #353332;
     }
     .home-blocks-item {
         padding: 12px;
@@ -443,6 +464,31 @@
     .home-faq {
         padding-top: 32px;
         padding-bottom: 32px;
+    }
+
+    .home-offer-blocks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .home-blocks-item {
+        width: 100%;
+    }
+
+    .home-blocks-text {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 150%;
+        /* identical to box height, or 27px */
+        letter-spacing: -0.02em;
+
+        color: #050200;
+    }
+
+    .home-pupi {
+        gap: 24px;
     }
 }
 
@@ -494,6 +540,107 @@
         min-width: 240%;
         margin-left: -70%;
         object-fit: contain;
+    }
+
+    .home-offer-text h2 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 100%;
+        /* or 32px */
+        letter-spacing: -0.02em;
+
+        color: #050200;
+    }
+
+    .home-faq {
+        padding-top: 0 !important;
+    }
+
+    .home-blog {
+        padding: 0 !important;
+    }
+
+    .blog-section-tg-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .home-video {
+        padding: 0 !important;
+    }
+
+    .video-section {
+        padding: 16px !important;
+    }
+
+    .video-section-title {
+        font-weight: 600 !important;
+        font-size: 32px !important;
+        line-height: 100% !important;
+        /* identical to box height, or 32px */
+        letter-spacing: -0.02em !important;
+    }
+
+    .video-section-desc {
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 150% !important;
+        /* or 24px */
+        letter-spacing: -0.02em !important;
+    }
+
+    .home-tariff {
+        padding: 0 !important;
+    }
+
+    .tariff-section {
+        padding: 16px !important;
+    }
+
+    .tariff-section-header {
+        margin: 0 !important;
+        padding: 12px !important;
+    }
+
+    .tariff-section-title {
+        font-weight: 600;
+        font-size: 32px !important;
+        line-height: 100%;
+        /* or 32px */
+        letter-spacing: -0.02em !important;
+    }
+
+    .tariff-section-subtitle {
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 150% !important;
+        /* or 24px */
+        letter-spacing: -0.02em !important;
+    }
+
+    .tariff-section-marketplaces {
+        flex-direction: column;
+        > button {
+            width: 100%;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            /* identical to box height, or 24px */
+            letter-spacing: -0.02em;
+        }
+    }
+
+    .tariff-section-warehouses {
+        padding-inline: 0 !important;
+    }
+
+    .tariff-section-warehouses-tags li {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+        letter-spacing: -0.02em;
     }
 }
 
