@@ -317,8 +317,8 @@
 }
 
 .phone-icon {
-    width: 14px;
-    height: 14px;
+    width: 19.2px;
+    height: 19.2px;
     display: block;
 }
 
@@ -532,11 +532,6 @@
         display: inline-flex;
         font-size: 13px;
         gap: 5px;
-    }
-
-    .phone-icon {
-        width: 13px;
-        height: 13px;
     }
 
     .order-btn {
@@ -795,7 +790,11 @@
     }
 
     .mobile-menu-phone {
-        font-size: 12px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 150%;
+        /* identical to box height, or 27px */
+        letter-spacing: -0.02em;
         margin-bottom: 12px;
     }
 
@@ -809,7 +808,7 @@
     }
 
     .mobile-nav-links a {
-        font-size: 10px;
+        font-size: 16px;
     }
 
     .mobile-menu .services-list ul {

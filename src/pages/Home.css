@@ -510,17 +510,17 @@
     /*.home-top .container {
         height: 376px;
     }*/
-    .home-banner {
+    /*.home-banner {
         min-height: 376px;
         max-height: 376px;
         align-items: flex-start;
-    }
-    .home-banner__logo {
+    }*/
+    /*.home-banner__logo {
         position: absolute;
         right: -5px;
         bottom: 10px;
-    }
-    .home-banner__boxes-wrap {
+    }*/
+    /*.home-banner__boxes-wrap {
         overflow: hidden;
         max-width: 50%;
         align-self: flex-start;
@@ -532,14 +532,32 @@
         transform: rotate(-12deg);
         transform-origin: left bottom;
         margin-right: -45px;
-    }
-    .home-banner__boxes {
+    }*/
+    /*.home-banner__boxes {
         object-position: 35% bottom;
         max-height: 180px;
         width: auto;
         min-width: 240%;
         margin-left: -70%;
         object-fit: contain;
+    }*/
+
+    .home-top .container {
+        padding: 0;
+    }
+
+    .home-banner__boxes-wrap {
+        align-items: center;
+        > img {
+            max-width: 256.09px;
+            max-height: 247.93px;
+            transform: rotate(-21.62deg);
+        }
+    }
+
+    .home-banner__logo {
+        max-width: 100%;
+        max-height: 100%;
     }
 
     .home-offer-text h2 {
@@ -641,6 +659,44 @@
         line-height: 150%;
         /* identical to box height, or 24px */
         letter-spacing: -0.02em;
+    }
+
+    .home-different,
+    .different {
+        padding: 0 !important;
+    }
+
+    .different-title {
+        font-weight: 600;
+        font-size: 32px !important;
+        line-height: 100%;
+        /* identical to box height, or 32px */
+        letter-spacing: -0.02em;
+    }
+
+    .home-services {
+        padding: 0;
+    }
+
+    .service-all h2 {
+        font-weight: 600;
+        font-size: 32px !important;
+        line-height: 100%;
+        /* identical to box height, or 32px */
+        letter-spacing: -0.02em;
+    }
+
+    .service-all p {
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 150% !important;
+        /* or 24px */
+        letter-spacing: -0.02em !important;
+        margin-bottom: 24px !important;
+    }
+
+    .home-calculator {
+        padding: 0;
     }
 }
 

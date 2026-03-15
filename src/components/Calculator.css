@@ -437,7 +437,7 @@
 
 @media (max-width: 460px) {
     .calculator-component {
-        padding: 16px 12px;
+        padding: 16px;
     }
     .calc-map-wrapper {
         height: 280px;
@@ -475,6 +475,87 @@
 
     .payment-text .details {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .calc-map-wrapper {
+        top: 0;
+    }
+
+    .calc-form-wrapper {
+        gap: 16px;
+    }
+
+    .form-header {
+        margin: 0;
+        > h2 {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 100%;
+            /* or 32px */
+            letter-spacing: -0.02em;
+        }
+        > p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            /* or 24px */
+            letter-spacing: -0.02em;
+        }
+    }
+
+    .address-block {
+        padding: 12px;
+    }
+
+    /* На очень узких экранах: не даём кнопкам переноситься, показываем две кнопки в одной линии,
+       слегка урезая текст через троеточие. */
+    .cargo-type {
+        flex-wrap: nowrap; /* запрет переносов */
+        overflow: hidden; /* чтобы не было выпадающего контента */
+    }
+
+    .cargo-type button {
+        /* Заставляем кнопку занимать ~половину строки (с учётом gap) */
+        flex: 0 0 calc(50% - 6px);
+        max-width: calc(50% - 6px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500;
+        font-size: 16px !important;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+        letter-spacing: -0.02em;
+        padding: 7px 10px; /* немного сузим внутренний отступ, чтобы поместился текст */
+    }
+
+    .cargo-type .active {
+        font-weight: 500;
+        font-size: 16px !important;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+        letter-spacing: -0.02em;
+    }
+
+    .services h4 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+        letter-spacing: -0.02em;
+    }
+
+    .payments h4 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+        letter-spacing: -0.02em;
+    }
+
+    .service-buttons {
     }
 }
 
@@ -680,6 +761,80 @@
 .pallet-selector::-webkit-scrollbar-thumb {
     background: rgba(248, 127, 7, 0.4);
     border-radius: 3px;
+}
+
+/* Mobile 360px tweaks: make carousel show ~2 cards in view and add thick rounded progress bar look */
+@media (max-width: 360px) {
+    /* give a little bottom space for the progress bar */
+    .vehicle-carousel {
+        padding-bottom: 18px;
+    }
+
+    /* horizontal track for cards (ensure snap + smooth touch scrolling) */
+    .vehicle-carousel .vehicles {
+        gap: 10px;
+        padding-top: 12px;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start;
+    }
+
+    /* card size tuned so ~2 cards fit into 360px (adjust if needed) */
+    .vehicle-card {
+        flex: 0 0 160px;
+        min-width: 160px;
+        height: 200px;
+        border-radius: 12px;
+        padding: 12px;
+        box-sizing: border-box;
+        scroll-snap-align: start;
+    }
+
+    /* faded / de-emphasized cards on edges */
+    .vehicle-card.faded {
+        opacity: 0.32;
+    }
+
+    /* make range input look like a rounded progress bar rather than a visible thumb */
+    .vehicle-slider-range {
+        width: calc(100% - 24px);
+        height: 6px;
+        padding: 0 12px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: linear-gradient(90deg, #f87f07 0%, #e9e9e9 0%);
+        border-radius: 999px;
+        margin-top: 8px;
+        transition: background 200ms linear;
+    }
+
+    .vehicle-slider-range::-webkit-slider-runnable-track {
+        height: 6px;
+        background: transparent;
+        border-radius: 999px;
+    }
+    .vehicle-slider-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 0;
+        height: 0;
+        background: transparent;
+        box-shadow: none;
+        margin-top: -1px;
+    }
+
+    .vehicle-slider-range::-moz-range-track {
+        height: 6px;
+        background: transparent;
+        border-radius: 999px;
+    }
+    .vehicle-slider-range::-moz-range-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+        border: none;
+    }
 }
 
 .pallet-card {
@@ -919,6 +1074,17 @@
     border: none;
 }
 
+.payments h4 {
+    margin-bottom: 12px;
+    font-family: var(--font-inter-tight);
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -0.36px;
+    text-align: left;
+    color: #050200;
+}
 .services h4 {
     margin-bottom: 12px;
     font-family: var(--font-inter-tight);

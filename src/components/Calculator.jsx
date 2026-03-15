@@ -1323,6 +1323,13 @@ export default function CalculatorComponent({ mode = "estimate" }) {
                   scrollToVehicle(next);
                 }}
                 className="vehicle-slider-range"
+                style={{
+                  background: `linear-gradient(90deg, #f87f07 ${Math.round(
+                    (vehicleIndex / Math.max(1, vehicles.length - 1)) * 100,
+                  )}%, #e9e9e9 ${Math.round(
+                    (vehicleIndex / Math.max(1, vehicles.length - 1)) * 100,
+                  )}%)`,
+                }}
               />
             </div>
           )}

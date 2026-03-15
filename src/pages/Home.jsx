@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 
+import logo3d_mobile from "../assets/image/main-banner/logo3d-mobile.png";
 import logo3d from "../assets/image/main-banner/logo3d.png";
 import boxes from "../assets/image/main-banner/boxes.png";
 
@@ -36,8 +37,16 @@ function Home() {
               <div className="home-banner__boxes-wrap">
                 <img src={boxes} alt="Коробки" className="home-banner__boxes" />
               </div>
+              <picture>
+                <source srcSet={logo3d_mobile} media="(max-width: 480px)" />
+                <source srcSet={logo3d} media="(min-width: 481px)" />
+                <img
+                  src={logo3d}
+                  alt="Paletkin"
+                  className="home-banner__logo"
+                />
+              </picture>
             </div>
-            <img src={logo3d} alt="Paletkin" className="home-banner__logo" />
           </div>
         </div>
 

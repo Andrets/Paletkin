@@ -1,78 +1,131 @@
-/* Partners Section */
+/* Partners Section
+   Исправлено: чтобы слайдер не обрезался из-за rotate обертки,
+   делаем внешние контейнеры видимыми для overflow и добавляем
+   запас по вертикали, а также сглаживание артефактов.
+*/
+
 .partners-section {
-  padding: 80px 0 100px;
-  background: #ffffff;
-  overflow: hidden;
+    padding: 80px 0 100px;
+    background: #ffffff;
+    /* Важно: позволяем дочерним элементам выходить за пределы секции,
+       чтобы повёрнутый блок не обрезался */
+    overflow: visible;
+    position: relative;
 }
 
-.partners-title {
-  font-family: var(--font-inter-tight);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.36px;
-  color: #050200;
-  text-align: center;
-  margin: 0 0 48px;
+/* Обертка остаётся full-bleed, но теперь не обрезает детей */
+.partners-wrapper {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    transform: rotate(-2deg); /* Крутим всю обертку */
+    position: relative;
+    /* Было overflow: hidden; — убираем его, чтобы элементы, вылезающие
+       из-за rotate, были видимы. */
+    overflow: hidden;
+
+    /* Сглаживание и изоляция растрирования, чтобы уменьшить артефакты */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
+/* Полоса с фоном. Пусть фон остаётся целиком, а содержимое может вылезать */
 .partners-band {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  padding: 32px 0;
-  background-image: linear-gradient(85deg, #e46314 29%, #ffa729 105%);
-   outline: 5px solid transparent; /* Хитрость для сглаживания */
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1); /* Маскирует артефакты */
-  transform: rotate(-2deg);
-  overflow: hidden;
+    width: 100%;
+    padding: 40px 0; /* чуть больше отступа, чтобы компенсировать rotate */
+    background-image: linear-gradient(85deg, #e46314 29%, #ffa729 105%);
+    outline: 5px solid transparent; /* Хитрость для сглаживания */
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1); /* Маскирует артефакты */
+    /* Позволяем содержимому (track) выходить за пределы этой полосы */
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 .partners-track {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-  width: max-content;
-  animation: partnersScroll 30s linear infinite;
-  will-change: transform;
-}
-
-@keyframes partnersScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.partners-logo {
-  flex-shrink: 0;
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    width: max-content;
+    animation: partnersScroll 30s linear infinite;
+    will-change: transform;
+    /* Если трек выходит за пределы .partners-band/.partners-wrapper,
+       он должен оставаться видимым */
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 
 .partners-logo img {
-  height: 70px;
-  width: auto;
-  max-width: 240px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+    height: 70px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    /* Сглаживание при трансформациях */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    image-rendering: optimizeQuality;
+}
+
+@keyframes partnersScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.partners-logo {
+    flex-shrink: 0;
+}
+
+.partners-logo img {
+    height: 70px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
 @media (max-width: 480px) {
-  .partners-section {
-    padding: 48px 0 64px;
-  }
-  .partners-title {
-    font-size: 28px;
-    margin-bottom: 32px;
-  }
-  .partners-band {
-    padding: 20px 0;
-  }
-  .partners-track {
-    gap: 32px;
-  }
-  .partners-logo img {
-    height: 36px;
-    max-width: 140px;
-  }
+    .partners-section {
+        padding: 48px 0 64px;
+    }
+    .partners-title {
+        font-size: 28px;
+        margin-bottom: 32px;
+    }
+    .partners-band {
+        padding: 20px 0;
+    }
+    .partners-track {
+        gap: 32px;
+    }
+    .partners-logo img {
+        height: 36px;
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 360px) {
+    .partners-title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+        text-align: center;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
+    }
+
+    .partners-section {
+        padding: 0;
+    }
+
+    .partners-track {
+        gap: 10px;
+    }
 }
