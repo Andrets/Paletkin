@@ -675,7 +675,7 @@
 @media (max-width: 480px) {
     .main-nav ul {
         gap: 8px;
-        padding: 8px 0;
+        padding: 16px 0;
     }
 
     .logo-default {
@@ -684,7 +684,8 @@
 
     .logo-compact {
         display: block !important;
-        height: 20px !important;
+        height: 36px !important;
+        width: 36px !important;
     }
 
     .header-actions {
@@ -697,9 +698,8 @@
 
     .order-btn,
     .burger-toggle {
-        width: 32px;
-        height: 32px;
-        border-radius: 7px;
+        width: 48px;
+        height: 48px;
     }
     .burger-toggle {
         margin: 0;
@@ -760,6 +760,14 @@
     .mobile-featured-blocks .featured-block p {
         font-size: 11px;
     }
+
+    .phone {
+        font-weight: 500;
+        font-size: 16px !important;
+        line-height: 150% !important;
+        /* identical to box height, or 24px */
+        letter-spacing: -0.02em !important;
+    }
 }
 
 @media (max-width: 360px) {
@@ -770,6 +778,10 @@
     .logo-default {
         display: block !important;
         height: 32px !important;
+    }
+
+    .logo-compact {
+        display: none !important;
     }
 
     .header-actions .phone,

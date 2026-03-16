@@ -3,6 +3,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 
 import logo from "../assets/image/logo/logo-black.svg";
+import logoCompact from "../assets/image/logo/logo-compact.svg";
+
 import servicesIcon from "../assets/image/icons/header/services.svg";
 import deliveryIcon from "../assets/image/icons/header/delivery.svg";
 import docsIcon from "../assets/image/icons/header/docs.svg";
@@ -86,6 +88,11 @@ function Header() {
             <li>
               <Link to="/" className="logo">
                 <img src={logo} alt="Paletkin" className="logo-default" />
+                <img
+                  src={logoCompact}
+                  alt="Paletkin"
+                  className="logo-compact"
+                />
               </Link>
             </li>
 
